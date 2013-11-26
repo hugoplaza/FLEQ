@@ -1,0 +1,1604 @@
+/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py:75: DeprecationWarning: The ADMIN_MEDIA_PREFIX setting has been removed; use STATIC_URL instead.
+  "use STATIC_URL instead.", DeprecationWarning)
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 438, in handle_one_response
+    self.run_application()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 424, in run_application
+    self.result = self.application(self.environ, self.start_response)
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/staticfiles/handlers.py", line 67, in __call__
+    return self.application(environ, start_response)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/wsgi.py", line 219, in __call__
+    self.load_middleware()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 51, in load_middleware
+    raise exceptions.ImproperlyConfigured('Middleware module "%s" does not define a "%s" class' % (mw_module, mw_classname))
+ImproperlyConfigured: Middleware module "django.middleware.csrf" does not define a "CsrfResponseMiddleware" class
+<SocketIOServer fileno=3 address=0.0.0.0:9000>: Failed to handle request:
+  request = GET / HTTP/1.1 from ('82.159.55.137', 58976)
+  application = <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x9a8012c>
+
+82.159.55.137 - - [2012-09-28 16:07:32] "GET / HTTP/1.1" 500 161 0.002338
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 438, in handle_one_response
+    self.run_application()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 424, in run_application
+    self.result = self.application(self.environ, self.start_response)
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/staticfiles/handlers.py", line 67, in __call__
+    return self.application(environ, start_response)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/wsgi.py", line 219, in __call__
+    self.load_middleware()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 51, in load_middleware
+    raise exceptions.ImproperlyConfigured('Middleware module "%s" does not define a "%s" class' % (mw_module, mw_classname))
+ImproperlyConfigured: Middleware module "django.middleware.csrf" does not define a "CsrfResponseMiddleware" class
+<SocketIOServer fileno=3 address=0.0.0.0:9000>: Failed to handle request:
+  request = GET /favicon.ico HTTP/1.1 from ('82.159.55.137', 58974)
+  application = <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x9a8012c>
+
+82.159.55.137 - - [2012-09-28 16:07:32] "GET /favicon.ico HTTP/1.1" 500 161 0.000703
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 191, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 220, in execute
+    output = self.handle(*args, **options)
+  File "/usr/local/lib/python2.6/dist-packages/django_socketio/management/commands/runserver_socketio.py", line 58, in handle
+    server.serve_forever()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 188, in serve_forever
+    self.start()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 146, in start
+    self.pre_start()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 552, in pre_start
+    StreamServer.pre_start(self)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/server.py", line 90, in pre_start
+    BaseServer.pre_start(self)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 136, in pre_start
+    self.socket = _tcp_listener(self.address, backlog=self.backlog, reuse_addr=self.reuse_addr)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 206, in _tcp_listener
+    sock.bind(address)
+socket.error: [Errno 98] Address already in use: ('0.0.0.0', 9000)
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 191, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 220, in execute
+    output = self.handle(*args, **options)
+  File "/usr/local/lib/python2.6/dist-packages/django_socketio/management/commands/runserver_socketio.py", line 58, in handle
+    server.serve_forever()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 188, in serve_forever
+    self.start()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 146, in start
+    self.pre_start()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 552, in pre_start
+    StreamServer.pre_start(self)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/server.py", line 90, in pre_start
+    BaseServer.pre_start(self)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 136, in pre_start
+    self.socket = _tcp_listener(self.address, backlog=self.backlog, reuse_addr=self.reuse_addr)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 206, in _tcp_listener
+    sock.bind(address)
+socket.error: [Errno 98] Address already in use: ('0.0.0.0', 9000)
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 191, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 220, in execute
+    output = self.handle(*args, **options)
+  File "/usr/local/lib/python2.6/dist-packages/django_socketio/management/commands/runserver_socketio.py", line 58, in handle
+    server.serve_forever()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 188, in serve_forever
+    self.start()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 146, in start
+    self.pre_start()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 552, in pre_start
+    StreamServer.pre_start(self)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/server.py", line 90, in pre_start
+    BaseServer.pre_start(self)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 136, in pre_start
+    self.socket = _tcp_listener(self.address, backlog=self.backlog, reuse_addr=self.reuse_addr)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 206, in _tcp_listener
+    sock.bind(address)
+socket.error: [Errno 98] Address already in use: ('0.0.0.0', 9000)
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 191, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 220, in execute
+    output = self.handle(*args, **options)
+  File "/usr/local/lib/python2.6/dist-packages/django_socketio/management/commands/runserver_socketio.py", line 58, in handle
+    server.serve_forever()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 188, in serve_forever
+    self.start()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 146, in start
+    self.pre_start()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 552, in pre_start
+    StreamServer.pre_start(self)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/server.py", line 90, in pre_start
+    BaseServer.pre_start(self)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 136, in pre_start
+    self.socket = _tcp_listener(self.address, backlog=self.backlog, reuse_addr=self.reuse_addr)
+  File "/usr/local/lib/python2.6/dist-packages/gevent/baseserver.py", line 206, in _tcp_listener
+    sock.bind(address)
+socket.error: [Errno 98] Address already in use: ('0.0.0.0', 9000)
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+82.159.55.137 - - [2012-09-28 16:16:01] "GET / HTTP/1.1" 200 6277 0.096163
+82.159.55.137 - - [2012-09-28 16:16:01] "GET /css/style.css HTTP/1.1" 304 109 0.019511
+82.159.55.137 - - [2012-09-28 16:16:01] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001895
+82.159.55.137 - - [2012-09-28 16:16:01] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001906
+82.159.55.137 - - [2012-09-28 16:16:01] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001886
+82.159.55.137 - - [2012-09-28 16:16:01] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001907
+82.159.55.137 - - [2012-09-28 16:16:01] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.002176
+82.159.55.137 - - [2012-09-28 16:16:01] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001914
+82.159.55.137 - - [2012-09-28 16:16:02] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001965
+82.159.55.137 - - [2012-09-28 16:16:02] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.002021
+82.159.55.137 - - [2012-09-28 16:16:02] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001901
+82.159.55.137 - - [2012-09-28 16:16:02] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001927
+82.159.55.137 - - [2012-09-28 16:16:02] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001950
+82.159.55.137 - - [2012-09-28 16:16:02] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001915
+82.159.55.137 - - [2012-09-28 16:16:02] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001934
+82.159.55.137 - - [2012-09-28 16:16:02] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001907
+82.159.55.137 - - [2012-09-28 16:16:02] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001914
+82.159.55.137 - - [2012-09-28 16:16:02] "GET /favicon.ico HTTP/1.1" 404 7439 0.024649
+82.159.55.137 - - [2012-09-28 16:22:34] "GET / HTTP/1.1" 200 6277 0.016794
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /css/style.css HTTP/1.1" 200 7896 0.002153
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001906
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001907
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001896
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001924
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001914
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001907
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001902
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001897
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001952
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001918
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001949
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001949
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001913
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001899
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001922
+82.159.55.137 - - [2012-09-28 16:22:34] "GET /favicon.ico HTTP/1.1" 404 7439 0.020567
+82.159.55.137 - - [2012-09-28 16:23:13] "GET / HTTP/1.1" 200 6277 0.016548
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /css/style.css HTTP/1.1" 200 7896 0.002248
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001920
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001895
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001897
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001923
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001919
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001903
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001926
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001895
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001929
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001893
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001972
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001967
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001916
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001897
+82.159.55.137 - - [2012-09-28 16:23:13] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001900
+82.159.55.137 - - [2012-09-28 16:23:14] "GET /favicon.ico HTTP/1.1" 404 7439 0.020583
+82.159.55.137 - - [2012-09-28 16:23:23] "GET / HTTP/1.1" 200 6277 0.022415
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /css/style.css HTTP/1.1" 200 7896 0.002278
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001927
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001890
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001915
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001917
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001915
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001905
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001904
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001900
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001927
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001951
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001913
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001960
+82.159.55.137 - - [2012-09-28 16:23:23] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001902
+82.159.55.137 - - [2012-09-28 16:23:24] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001897
+82.159.55.137 - - [2012-09-28 16:23:24] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001903
+82.159.55.137 - - [2012-09-28 16:23:24] "GET /favicon.ico HTTP/1.1" 404 7439 0.020548
+82.159.55.137 - - [2012-09-28 16:23:41] "GET / HTTP/1.1" 200 6277 0.016507
+82.159.55.137 - - [2012-09-28 16:23:41] "GET /css/style.css HTTP/1.1" 200 7896 0.002092
+82.159.55.137 - - [2012-09-28 16:23:41] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001899
+82.159.55.137 - - [2012-09-28 16:23:41] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001901
+82.159.55.137 - - [2012-09-28 16:23:41] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001901
+82.159.55.137 - - [2012-09-28 16:23:41] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001933
+82.159.55.137 - - [2012-09-28 16:23:41] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001952
+82.159.55.137 - - [2012-09-28 16:23:41] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001915
+82.159.55.137 - - [2012-09-28 16:23:42] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001896
+82.159.55.137 - - [2012-09-28 16:23:42] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001931
+82.159.55.137 - - [2012-09-28 16:23:42] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001917
+82.159.55.137 - - [2012-09-28 16:23:42] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001901
+82.159.55.137 - - [2012-09-28 16:23:42] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001953
+82.159.55.137 - - [2012-09-28 16:23:42] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001947
+82.159.55.137 - - [2012-09-28 16:23:42] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001908
+82.159.55.137 - - [2012-09-28 16:23:42] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001923
+82.159.55.137 - - [2012-09-28 16:23:42] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001926
+82.159.55.137 - - [2012-09-28 16:23:42] "GET /favicon.ico HTTP/1.1" 404 7439 0.020796
+82.159.55.137 - - [2012-09-28 16:24:00] "GET / HTTP/1.1" 200 6277 0.016589
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /css/style.css HTTP/1.1" 304 109 0.001946
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001897
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001916
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001913
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001926
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001919
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001905
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001949
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001928
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001951
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001916
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001905
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001904
+82.159.55.137 - - [2012-09-28 16:24:00] "GET /favicon.ico HTTP/1.1" 404 7439 0.020498
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+82.159.55.137 - - [2012-09-28 16:26:36] "GET / HTTP/1.1" 200 6277 0.113470
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /css/style.css HTTP/1.1" 304 109 0.019851
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001944
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001884
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.002157
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001918
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001895
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001917
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001961
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001934
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001945
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001906
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001928
+82.159.55.137 - - [2012-09-28 16:26:36] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001913
+82.159.55.137 - - [2012-09-28 16:26:37] "GET /favicon.ico HTTP/1.1" 404 7439 0.024557
+82.159.55.137 - - [2012-09-28 16:27:13] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 16:27:37] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:27:40] "Socket.IO message: {u'action': u'message', u'message': u'hola', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:27:42] "Socket.IO message: {u'action': u'message', u'message': u'que tal?', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:27:45] "Socket.IO message: {u'action': u'message', u'message': u'genial!!!!!!', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:27:49] "Socket.IO message: {u'action': u'message', u'message': u'estoy euforico!!!!!!!!', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:27:51] "Socket.IO message: {u'action': u'message', u'message': u'xDDDD', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:28:38] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 16:28:40] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'pedri'}"
+82.159.55.137 - - [2012-09-28 16:28:57] "Socket.IO message: {u'action': u'message', u'message': u'hola cabroncete', u'room': 1, 'name': u'pedri'}"
+82.159.55.137 - - [2012-09-28 16:29:18] "Socket.IO message: {u'action': u'message', u'message': u'hola campeon!!', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:29:23] "Socket.IO message: {u'action': u'message', u'message': u'eres un crack!', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:29:38] "Socket.IO message: {u'action': u'message', u'message': u'CRACK!!!', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:31:07] "Socket.IO message: {u'action': u'message', u'message': u'TIGRETON!', u'room': 1, 'name': u'jorge'}"
+85.62.233.162 - - [2012-09-28 16:38:44] "Socket.IO subscribe: room-1"
+85.62.233.162 - - [2012-09-28 16:38:45] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'yo'}"
+85.62.233.162 - - [2012-09-28 16:38:57] "Socket.IO message: {u'action': u'message', u'message': u'hola', u'room': 1, 'name': u'yo'}"
+85.62.233.162 - - [2012-09-28 16:39:05] "Socket.IO message: {u'action': u'message', u'message': u'q haces?', u'room': 1, 'name': u'yo'}"
+82.159.55.137 - - [2012-09-28 16:39:21] "Socket.IO message: {u'action': u'message', u'message': u'nada... contemplar esto jajajaja', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:39:28] "Socket.IO message: {u'action': u'message', u'message': u'q guapo esta macho', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:39:37] "Socket.IO message: {u'action': u'message', u'message': u'va genial :-)', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 16:51:36] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 16:51:36] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 17:07:12] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 17:07:12] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 17:08:20] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 17:08:20] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'jorge'}"
+85.62.233.161 - - [2012-09-28 17:11:25] "Socket.IO subscribe: room-1"
+85.62.233.161 - - [2012-09-28 17:11:26] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'yo'}"
+85.62.233.161 - - [2012-09-28 17:11:26] "Socket.IO message: {u'action': u'message', u'message': u'eyyy', u'room': 1, 'name': u'yo'}"
+82.159.55.137 - - [2012-09-28 17:11:57] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 17:12:18] "Socket.IO subscribe: room-1"
+85.62.233.161 - - [2012-09-28 17:12:32] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'jorge'}"
+82.159.55.137 - - [2012-09-28 17:12:36] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'estefano'}"
+85.62.233.161 - - [2012-09-28 17:13:28] "Socket.IO subscribe: room-1"
+85.62.233.161 - - [2012-09-28 17:13:39] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'grex'}"
+85.62.233.161 - - [2012-09-28 17:13:57] "Socket.IO message: {u'action': u'message', u'message': u'hola', u'room': 1, 'name': u'grex'}"
+85.62.233.161 - - [2012-09-28 17:14:10] "Socket.IO message: {u'action': u'message', u'message': u'que haceiss', u'room': 1, 'name': u'grex'}"
+85.62.233.162 - - [2012-09-28 17:16:57] "Socket.IO subscribe: room-1"
+85.62.233.162 - - [2012-09-28 17:16:59] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'grex'}"
+82.159.55.137 - - [2012-09-28 17:17:10] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 17:17:10] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'estefano'}"
+82.159.55.137 - - [2012-09-28 17:24:20] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 17:24:25] "Socket.IO subscribe: room-1"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0xa7fe70c: <bound method SocketIOServer.handle of <SocketIOServer at 0xa6fe6ac fileno=3 address=0.0.0.0:9000>>(<socket at 0xa8b772c fileno=[Errno 9] Bad file des, ('82.159.55.137', 59892))> failed with TypeError
+
+82.159.55.137 - - [2012-09-28 17:25:06] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 17:30:31] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 17:31:46] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 17:31:57] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristina'}"
+82.159.55.137 - - [2012-09-28 17:32:24] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 17:32:30] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'eugenio'}"
+82.159.55.137 - - [2012-09-28 17:32:43] "Socket.IO message: {u'action': u'message', u'message': u'hola cristi hija', u'room': 1, 'name': u'eugenio'}"
+82.159.55.137 - - [2012-09-28 17:32:55] "Socket.IO message: {u'action': u'message', u'message': u'holaaaa', u'room': 1, 'name': u'cristina'}"
+82.159.55.137 - - [2012-09-28 17:57:15] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 17:57:15] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristina'}"
+82.159.55.137 - - [2012-09-28 18:02:12] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 18:02:12] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristina'}"
+82.159.55.137 - - [2012-09-28 18:11:59] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 18:12:00] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristina'}"
+82.159.55.137 - - [2012-09-28 18:12:46] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 18:12:46] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristina'}"
+82.159.55.137 - - [2012-09-28 18:13:57] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 18:13:58] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristina'}"
+82.159.55.137 - - [2012-09-28 18:21:45] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-28 18:21:45] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristina'}"
+58.218.199.250 - - [2012-09-29 07:07:38] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.008175
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 191, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 220, in execute
+    output = self.handle(*args, **options)
+  File "/usr/local/lib/python2.6/dist-packages/django_socketio/management/commands/runserver_socketio.py", line 60, in handle
+    client_end_all()
+  File "/usr/local/lib/python2.6/dist-packages/django_socketio/clients.py", line 43, in client_end_all
+    client_end(request, socket, context)
+  File "/usr/local/lib/python2.6/dist-packages/django_socketio/clients.py", line 34, in client_end
+    del CLIENTS[socket.session.session_id]
+KeyError: '237809400729'
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+82.159.55.137 - - [2012-09-29 09:46:03] "GET / HTTP/1.1" 200 6277 0.140930
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /css/google-buttons.css HTTP/1.1" 200 4814 0.019006
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /css/style.css HTTP/1.1" 200 7896 0.001964
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /css/jquery-tablesorter.css HTTP/1.1" 200 1390 0.001977
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /css/tipTip.css HTTP/1.1" 200 1306 0.001943
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 200 4053 0.002302
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /js/jquery-tipTip.js HTTP/1.1" 200 7033 0.001959
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /js/jquery-tablesorter.js HTTP/1.1" 200 16695 0.037062
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /images/img01.jpg HTTP/1.1" 200 685 0.002021
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /images/img03.jpg HTTP/1.1" 200 1955 0.001945
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /images/img04.jpg HTTP/1.1" 200 564 0.002007
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /images/social-networks/mail.png HTTP/1.1" 200 3984 0.002005
+82.159.55.137 - - [2012-09-29 09:46:03] "GET /images/social-networks/twitter.png HTTP/1.1" 200 4285 0.002012
+82.159.55.137 - - [2012-09-29 09:46:04] "GET /images/emadrid_logo.png HTTP/1.1" 200 34889 0.039129
+82.159.55.137 - - [2012-09-29 09:46:04] "GET /images/libresoft_logo.png HTTP/1.1" 200 41013 0.048435
+82.159.55.137 - - [2012-09-29 09:46:04] "GET /images/URJC_logo.png HTTP/1.1" 200 97270 0.128356
+82.159.55.137 - - [2012-09-29 09:46:04] "GET /images/how_to/play.gif HTTP/1.1" 200 1058993 0.481787
+82.159.55.137 - - [2012-09-29 09:46:04] "GET /favicon.ico HTTP/1.1" 404 7439 0.024801
+82.159.55.137 - - [2012-09-29 09:48:33] "GET / HTTP/1.1" 200 6277 0.035585
+82.159.55.137 - - [2012-09-29 09:48:33] "GET /css/style.css HTTP/1.1" 304 109 0.002775
+82.159.55.137 - - [2012-09-29 09:48:33] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.002087
+82.159.55.137 - - [2012-09-29 09:48:33] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001933
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001915
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001960
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001961
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001933
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001933
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001929
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001980
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001937
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001986
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001979
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001945
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001952
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001939
+82.159.55.137 - - [2012-09-29 09:48:34] "GET /favicon.ico HTTP/1.1" 404 7439 0.020830
+127.0.0.1 - - [2012-09-29 09:49:42] "GET / HTTP/1.0" 200 6255 0.022673
+127.0.0.1 - - [2012-09-29 09:49:43] "GET /favicon.ico HTTP/1.0" 404 7412 0.037151
+82.159.55.137 - - [2012-09-29 09:49:47] "GET / HTTP/1.1" 200 6277 0.023021
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /css/style.css HTTP/1.1" 304 109 0.002000
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001926
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001969
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001920
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001972
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001952
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001933
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001948
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001932
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001956
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001933
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001981
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001980
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001936
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001937
+82.159.55.137 - - [2012-09-29 09:49:47] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001949
+82.159.55.137 - - [2012-09-29 09:49:48] "GET /favicon.ico HTTP/1.1" 404 7439 0.021055
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+127.0.0.1 - - [2012-09-29 09:52:57] "GET / HTTP/1.0" 200 6255 0.104196
+127.0.0.1 - - [2012-09-29 09:52:58] "GET /favicon.ico HTTP/1.0" 404 7412 0.024418
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+127.0.0.1 - - [2012-09-29 10:09:33] "GET /xhr-polling/1349007555396 HTTP/1.0" 404 7454 0.113860
+127.0.0.1 - - [2012-09-29 10:11:02] "GET /xhr-polling/1349007644446 HTTP/1.0" 404 7454 0.020749
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+127.0.0.1 - - [2012-09-29 10:13:17] "GET /xhr-polling/1349007780049 HTTP/1.0" 404 7454 0.098759
+127.0.0.1 - - [2012-09-29 10:13:37] "GET /xhr-polling/1349007780049 HTTP/1.0" 404 7454 0.020730
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+82.159.55.137 - - [2012-09-29 16:45:01] "GET / HTTP/1.1" 200 6277 0.105455
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /css/style.css HTTP/1.1" 304 109 0.019712
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001939
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001931
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001925
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001957
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001981
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001943
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/img03.jpg HTTP/1.1" 304 111 0.002003
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001931
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001962
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001956
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001990
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001972
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001953
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001953
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001935
+82.159.55.137 - - [2012-09-29 16:45:01] "GET / HTTP/1.1" 200 6277 0.022704
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001957
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /css/style.css HTTP/1.1" 304 109 0.001953
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001922
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001934
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001947
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001930
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001941
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001927
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001920
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001950
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001932
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001978
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001961
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001939
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001925
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001950
+82.159.55.137 - - [2012-09-29 16:45:01] "GET /favicon.ico HTTP/1.1" 404 7439 0.024390
+82.159.55.137 - - [2012-09-29 16:45:07] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-29 16:45:08] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-29 16:45:13] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'jorge'}"
+82.159.55.137 - - [2012-09-29 16:45:17] "Socket.IO message: {u'action': u'message', u'message': u'que haces bobo', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-29 16:45:19] "Socket.IO message: {u'action': u'message', u'message': u'eeeeeeee', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-29 16:45:21] "Socket.IO message: {u'action': u'message', u'message': u'?', u'room': 1, 'name': u'jorge'}"
+82.159.55.137 - - [2012-09-29 16:45:27] "GET / HTTP/1.1" 200 6277 0.020479
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /css/style.css HTTP/1.1" 304 109 0.002050
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001922
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001926
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001938
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001950
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001979
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001937
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001947
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /images/img01.jpg HTTP/1.1" 304 111 0.002408
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /images/img04.jpg HTTP/1.1" 304 111 0.002152
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.002046
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001989
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001977
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001936
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001938
+82.159.55.137 - - [2012-09-29 16:45:27] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001936
+82.159.55.137 - - [2012-09-29 16:45:28] "GET / HTTP/1.1" 200 6277 0.022976
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /css/style.css HTTP/1.1" 304 109 0.001974
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001936
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001923
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001934
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001949
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001929
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001962
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001930
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001917
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001962
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001937
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001965
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001978
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001939
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001948
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001937
+82.159.55.137 - - [2012-09-29 16:45:28] "GET /favicon.ico HTTP/1.1" 404 7439 0.020515
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /chat HTTP/1.1" 200 8718 0.074099
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /css/style.css HTTP/1.1" 304 109 0.001991
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001954
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001940
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001932
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /js/chat.js HTTP/1.1" 200 3337 0.001973
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001946
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001951
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001941
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /static/js/socket.io.js HTTP/1.1" 200 64468 0.132891
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001996
+82.159.55.137 - - [2012-09-29 16:45:32] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.002015
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001940
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001944
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001947
+82.159.55.137 - - [2012-09-29 16:45:32] "GET /favicon.ico HTTP/1.1" 404 7439 0.020495
+82.159.55.137 - - [2012-09-29 16:45:34] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'nieves'}"
+82.159.55.137 - - [2012-09-29 16:45:37] "Socket.IO message: {u'action': u'message', u'message': u'eeeeeee', u'room': 1, 'name': u'nieves'}"
+82.159.55.137 - - [2012-09-29 16:45:43] "Socket.IO message: {u'action': u'message', u'message': u'jajajaja', u'room': 1, 'name': u'nieves'}"
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+82.159.55.137 - - [2012-09-29 17:17:49] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-29 17:17:49] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-09-29 17:17:49] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'nieves'}"
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 191, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/base.py", line 220, in execute
+    output = self.handle(*args, **options)
+  File "/usr/local/lib/python2.6/dist-packages/django_socketio/management/commands/runserver_socketio.py", line 60, in handle
+    client_end_all()
+  File "/usr/local/lib/python2.6/dist-packages/django_socketio/clients.py", line 43, in client_end_all
+    client_end(request, socket, context)
+  File "/usr/local/lib/python2.6/dist-packages/django_socketio/clients.py", line 34, in client_end
+    del CLIENTS[socket.session.session_id]
+KeyError: '195922421769'
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+82.159.55.137 - - [2012-09-29 17:33:42] "GET / HTTP/1.1" 200 6277 0.108357
+82.159.55.137 - - [2012-09-29 17:33:42] "GET /css/style.css HTTP/1.1" 304 109 0.019616
+82.159.55.137 - - [2012-09-29 17:33:42] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001900
+82.159.55.137 - - [2012-09-29 17:33:42] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001887
+82.159.55.137 - - [2012-09-29 17:33:42] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001894
+82.159.55.137 - - [2012-09-29 17:33:42] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001940
+82.159.55.137 - - [2012-09-29 17:33:42] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001927
+82.159.55.137 - - [2012-09-29 17:33:42] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001910
+82.159.55.137 - - [2012-09-29 17:33:43] "GET /images/img01.jpg HTTP/1.1" 304 111 0.002201
+82.159.55.137 - - [2012-09-29 17:33:43] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001922
+82.159.55.137 - - [2012-09-29 17:33:43] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001891
+82.159.55.137 - - [2012-09-29 17:33:43] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001951
+82.159.55.137 - - [2012-09-29 17:33:43] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001946
+82.159.55.137 - - [2012-09-29 17:33:43] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001892
+82.159.55.137 - - [2012-09-29 17:33:43] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.002060
+82.159.55.137 - - [2012-09-29 17:33:43] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001942
+82.159.55.137 - - [2012-09-29 17:33:43] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.001940
+82.159.55.137 - - [2012-09-29 17:33:43] "GET /favicon.ico HTTP/1.1" 404 7439 0.024441
+82.159.55.137 - - [2012-10-01 02:08:09] "GET / HTTP/1.1" 200 6277 0.023015
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /css/style.css HTTP/1.1" 304 109 0.002034
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /css/google-buttons.css HTTP/1.1" 304 109 0.001901
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /css/jquery-tablesorter.css HTTP/1.1" 304 109 0.001905
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /js/jquery-tablesorter-pager.js HTTP/1.1" 304 123 0.001923
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /css/tipTip.css HTTP/1.1" 304 109 0.001889
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /js/jquery-tablesorter.js HTTP/1.1" 304 123 0.001903
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /js/jquery-tipTip.js HTTP/1.1" 304 123 0.001924
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /images/img03.jpg HTTP/1.1" 304 111 0.001932
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /images/img01.jpg HTTP/1.1" 304 111 0.001925
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /images/how_to/play.gif HTTP/1.1" 304 110 0.001937
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /images/img04.jpg HTTP/1.1" 304 111 0.001929
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /images/social-networks/mail.png HTTP/1.1" 304 110 0.001946
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /images/social-networks/twitter.png HTTP/1.1" 304 110 0.001942
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /images/libresoft_logo.png HTTP/1.1" 304 110 0.001914
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /images/emadrid_logo.png HTTP/1.1" 304 110 0.002299
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /images/URJC_logo.png HTTP/1.1" 304 110 0.001887
+82.159.55.137 - - [2012-10-01 02:08:09] "GET /favicon.ico HTTP/1.1" 404 7439 0.020179
+82.159.55.137 - - [2012-10-01 03:13:53] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-10-01 03:13:56] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'gregorio'}"
+82.159.55.137 - - [2012-10-01 03:13:59] "Socket.IO message: {u'action': u'message', u'message': u'hola macho', u'room': 1, 'name': u'gregorio'}"
+82.159.55.137 - - [2012-10-01 03:14:05] "Socket.IO message: {u'action': u'message', u'message': u'que haces aqui todavia?', u'room': 1, 'name': u'gregorio'}"
+82.159.55.137 - - [2012-10-01 03:14:10] "Socket.IO message: {u'action': u'message', u'message': u'vaya tela, menudo frikazo', u'room': 1, 'name': u'gregorio'}"
+82.159.55.137 - - [2012-10-01 03:15:16] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-10-01 03:15:19] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'arturo'}"
+82.159.55.137 - - [2012-10-01 03:15:21] "Socket.IO message: {u'action': u'message', u'message': u'eeeeee', u'room': 1, 'name': u'arturo'}"
+82.159.55.137 - - [2012-10-01 03:15:22] "Socket.IO message: {u'action': u'message', u'message': u':-)', u'room': 1, 'name': u'arturo'}"
+58.218.199.250 - - [2012-10-01 13:30:14] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.008150
+58.218.199.227 - - [2012-10-01 19:35:34] "GET http://59.53.91.9/httpproxy/proxyheader.php HTTP/1.1" 404 1911 0.007442
+87.221.192.21 - - [2012-10-01 21:45:29] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-01 21:45:56] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'jorge'}"
+87.221.192.21 - - [2012-10-01 21:46:05] "Socket.IO message: {u'action': u'message', u'message': u'hola', u'room': 1, 'name': u'jorge'}"
+87.221.192.21 - - [2012-10-01 21:46:07] "Socket.IO message: {u'action': u'message', u'message': u'que tal', u'room': 1, 'name': u'jorge'}"
+87.221.192.21 - - [2012-10-01 21:50:47] "Socket.IO message: {u'action': u'message', u'message': u'bien', u'room': 1, 'name': u'jorge'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9f93cfc: <bound method SocketIOServer.handle of <SocketIOServer at 0x9eb16ac fileno=3 address=0.0.0.0:9000>>(<socket at 0x9f9daec fileno=[Errno 9] Bad file des, ('193.147.51.208', 41681))> failed with TypeError
+
+193.147.51.208 - - [2012-10-01 21:52:19] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 21:52:19] "Socket.IO subscribe: room-1"
+193.147.51.208 - - [2012-10-01 21:52:19] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 21:52:22] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 21:52:25] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 21:52:28] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 21:52:32] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 21:52:35] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 21:52:38] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 21:52:41] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 21:52:45] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'Sagrario'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0xa04a52c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9eb16ac fileno=3 address=0.0.0.0:9000>>(<socket at 0xa0529ec fileno=[Errno 9] Bad file des, ('193.147.51.208', 41730))> failed with TypeError
+
+193.147.51.208 - - [2012-10-01 22:13:37] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 22:13:37] "Socket.IO subscribe: room-1"
+193.147.51.208 - - [2012-10-01 22:13:37] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 22:13:39] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'Sagrario'}"
+193.147.51.208 - - [2012-10-01 22:13:43] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'Sagrario'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0xa04a9dc: <bound method SocketIOServer.handle of <SocketIOServer at 0x9eb16ac fileno=3 address=0.0.0.0:9000>>(<socket at 0xa052aec fileno=[Errno 9] Bad file des, ('87.221.192.21', 48066))> failed with TypeError
+
+87.221.192.21 - - [2012-10-01 22:16:45] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ-bot'}"
+87.221.192.21 - - [2012-10-01 22:16:45] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-01 22:16:45] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9f9325c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9eb16ac fileno=3 address=0.0.0.0:9000>>(<socket at 0x9f82d4c fileno=[Errno 9] Bad file des, ('87.221.192.21', 48117))> failed with TypeError
+
+87.221.192.21 - - [2012-10-01 22:17:48] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ-bot'}"
+87.221.192.21 - - [2012-10-01 22:17:48] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-01 22:17:48] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9f8d8ec: <bound method SocketIOServer.handle of <SocketIOServer at 0x9eb16ac fileno=3 address=0.0.0.0:9000>>(<socket at 0x9f9138c fileno=[Errno 9] Bad file des, ('87.221.192.21', 48165))> failed with TypeError
+
+87.221.192.21 - - [2012-10-01 22:18:16] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:16] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-01 22:18:16] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:20] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:23] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:27] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:30] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:33] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:36] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:40] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:43] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:46] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:49] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:18:53] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9f9375c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9eb16ac fileno=3 address=0.0.0.0:9000>>(<socket at 0xa05606c fileno=[Errno 9] Bad file des, ('87.221.192.21', 48375))> failed with TypeError
+
+87.221.192.21 - - [2012-10-01 22:21:51] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:21:51] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-01 22:21:51] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:21:56] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:21:59] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:02] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:05] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:09] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:12] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:15] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:18] "Socket.IO message: {u'action': u'message', u'message': u'hola FLEQ2-bot!!!', u'room': 1, 'name': u'jorge'}"
+87.221.192.21 - - [2012-10-01 22:22:19] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:22] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:25] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:29] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:32] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:36] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:39] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:42] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:46] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:49] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-01 22:22:53] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+58.218.199.250 - - [2012-10-01 22:46:06] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007501
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 252, in fetch_command
+    app_name = get_commands()[subcommand]
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 101, in get_commands
+    apps = settings.INSTALLED_APPS
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/functional.py", line 276, in __getattr__
+    self._setup()
+  File "/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py", line 42, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py", line 125, in __init__
+    raise ValueError("Incorrect timezone setting: %s" % self.TIME_ZONE)
+ValueError: Incorrect timezone setting: None
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 252, in fetch_command
+    app_name = get_commands()[subcommand]
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 101, in get_commands
+    apps = settings.INSTALLED_APPS
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/functional.py", line 276, in __getattr__
+    self._setup()
+  File "/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py", line 42, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py", line 125, in __init__
+    raise ValueError("Incorrect timezone setting: %s" % self.TIME_ZONE)
+ValueError: Incorrect timezone setting: None
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 252, in fetch_command
+    app_name = get_commands()[subcommand]
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 101, in get_commands
+    apps = settings.INSTALLED_APPS
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/functional.py", line 276, in __getattr__
+    self._setup()
+  File "/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py", line 42, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py", line 125, in __init__
+    raise ValueError("Incorrect timezone setting: %s" % self.TIME_ZONE)
+ValueError: Incorrect timezone setting: None
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 252, in fetch_command
+    app_name = get_commands()[subcommand]
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 101, in get_commands
+    apps = settings.INSTALLED_APPS
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/functional.py", line 276, in __getattr__
+    self._setup()
+  File "/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py", line 42, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py", line 125, in __init__
+    raise ValueError("Incorrect timezone setting: %s" % self.TIME_ZONE)
+ValueError: Incorrect timezone setting: None
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+Traceback (most recent call last):
+  File "manage.py", line 11, in <module>
+    execute_manager(settings)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 252, in fetch_command
+    app_name = get_commands()[subcommand]
+  File "/usr/local/lib/python2.6/dist-packages/django/core/management/__init__.py", line 101, in get_commands
+    apps = settings.INSTALLED_APPS
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/functional.py", line 276, in __getattr__
+    self._setup()
+  File "/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py", line 42, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/conf/__init__.py", line 125, in __init__
+    raise ValueError("Incorrect timezone setting: %s" % self.TIME_ZONE)
+ValueError: Incorrect timezone setting: None
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+82.159.55.137 - - [2012-10-02 00:41:07] "Socket.IO subscribe: room-1"
+112.243.207.233 - - [2012-10-02 18:17:47] "GET http://www.baidu.com/ HTTP/1.1" 404 1845 0.011220
+112.243.207.233 - - [2012-10-02 18:17:47] "GET http://www.baidu.com/ HTTP/1.1" 404 1845 0.007266
+112.243.207.233 - - [2012-10-02 18:17:47] "GET http://www.baidu.com/ HTTP/1.1" 404 1845 0.007081
+87.221.192.21 - - [2012-10-02 20:27:12] "Socket.IO subscribe: room-1"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9bbe48c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9be1c6c fileno=[Errno 9] Bad file des, ('87.221.192.21', 55121))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 20:35:29] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:35:29] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 20:35:29] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:35:34] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:35:37] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:35:41] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:35:43] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 20:35:44] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:35:47] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:35:51] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:35:54] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:35:57] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:01] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:04] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:07] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:11] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:13] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'jorge'}"
+87.221.192.21 - - [2012-10-02 20:36:14] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:16] "Socket.IO message: {u'action': u'message', u'message': u'hola', u'room': 1, 'name': u'jorge'}"
+87.221.192.21 - - [2012-10-02 20:36:17] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:19] "Socket.IO message: {u'action': u'message', u'message': u'que tal', u'room': 1, 'name': u'jorge'}"
+87.221.192.21 - - [2012-10-02 20:36:20] "Socket.IO message: {u'action': u'message', u'message': u'?', u'room': 1, 'name': u'jorge'}"
+87.221.192.21 - - [2012-10-02 20:36:21] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:24] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:28] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:31] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:35] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:39] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9c38cfc: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9bd1c4c fileno=[Errno 9] Bad file des, ('87.221.192.21', 55499))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 20:36:43] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:47] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 20:36:47] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:51] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:55] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:36:58] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:02] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:06] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:09] "Socket.IO message: {u'action': u'message', u'message': u'hola nievus', u'room': 1, 'name': u'jorge'}"
+87.221.192.21 - - [2012-10-02 20:37:09] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:13] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:16] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:20] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:24] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:27] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:31] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:34] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:38] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:42] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:45] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:49] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:52] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:56] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:37:59] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:38:03] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:38:07] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:38:10] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:38:14] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:38:17] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:38:21] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:38:25] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:38:29] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9c5f34c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9c63ecc fileno=[Errno 9] Bad file des, ('87.221.192.21', 57120))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 20:49:51] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:49:51] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 20:49:51] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:49:56] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:49:59] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:02] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:06] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:09] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:12] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:16] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:19] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:22] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:26] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:29] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:32] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:36] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:39] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:43] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 20:50:46] "Socket.IO message: {u'action': u'message', u'message': u'Hola', u'room': 1, 'name': u'FLEQ2-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9c4ae8c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9bc8b4c fileno=[Errno 9] Bad file des, ('87.221.192.21', 57831))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:07:52] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 21:07:52] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:07:52] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 68, in handle_one_response
+    jobs = self.transport.connect(session, request_method)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 155, in connect
+    return self.handle_post_response(session)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 67, in handle_post_response
+    messages = self.decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 16, in decode
+    return self.handler.environ['socketio'].decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/protocol.py", line 113, in decode
+    messages.append(json.loads(data[3:size]))
+  File "/usr/lib/python2.6/json/__init__.py", line 307, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.6/json/decoder.py", line 319, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.6/json/decoder.py", line 336, in raw_decode
+    obj, end = self._scanner.iterscan(s, **kw).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 183, in JSONObject
+    value, end = iterscan(s, idx=end, context=context).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 155, in JSONString
+    return scanstring(match.string, match.end(), encoding, strict)
+ValueError: Unterminated string starting at: line 1 column 39 (char 39)
+<Greenlet at 0x9bbe9dc: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9cb7b0c fileno=[Errno 9] Bad file des, ('87.221.192.21', 57842))> failed with ValueError
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9bbe75c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9c5058c fileno=[Errno 9] Bad file des, ('87.221.192.21', 57844))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:07:58] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:07:58] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 21:08:02] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:08:02] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9cc7bbc: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9c2a12c fileno=[Errno 9] Bad file des, ('87.221.192.21', 57902))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:08:58] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 21:08:58] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:08:58] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 68, in handle_one_response
+    jobs = self.transport.connect(session, request_method)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 155, in connect
+    return self.handle_post_response(session)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 67, in handle_post_response
+    messages = self.decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 16, in decode
+    return self.handler.environ['socketio'].decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/protocol.py", line 113, in decode
+    messages.append(json.loads(data[3:size]))
+  File "/usr/lib/python2.6/json/__init__.py", line 307, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.6/json/decoder.py", line 319, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.6/json/decoder.py", line 336, in raw_decode
+    obj, end = self._scanner.iterscan(s, **kw).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 183, in JSONObject
+    value, end = iterscan(s, idx=end, context=context).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 155, in JSONString
+    return scanstring(match.string, match.end(), encoding, strict)
+ValueError: Unterminated string starting at: line 1 column 39 (char 39)
+<Greenlet at 0x9cc70cc: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9bd1bec fileno=[Errno 9] Bad file des, ('87.221.192.21', 57914))> failed with ValueError
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9c5fd9c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9cb764c fileno=[Errno 9] Bad file des, ('87.221.192.21', 57916))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:09:04] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:09:04] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+87.221.192.21 - - [2012-10-02 21:09:08] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:09:08] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ2-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9ccf70c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9cd904c fileno=[Errno 9] Bad file des, ('87.221.192.21', 58010))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:10:54] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+87.221.192.21 - - [2012-10-02 21:10:54] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:10:54] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 68, in handle_one_response
+    jobs = self.transport.connect(session, request_method)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 155, in connect
+    return self.handle_post_response(session)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 67, in handle_post_response
+    messages = self.decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 16, in decode
+    return self.handler.environ['socketio'].decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/protocol.py", line 113, in decode
+    messages.append(json.loads(data[3:size]))
+  File "/usr/lib/python2.6/json/__init__.py", line 307, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.6/json/decoder.py", line 319, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.6/json/decoder.py", line 336, in raw_decode
+    obj, end = self._scanner.iterscan(s, **kw).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 183, in JSONObject
+    value, end = iterscan(s, idx=end, context=context).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 155, in JSONString
+    return scanstring(match.string, match.end(), encoding, strict)
+ValueError: Unterminated string starting at: line 1 column 39 (char 39)
+<Greenlet at 0x9bbe34c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9ccc9ec fileno=[Errno 9] Bad file des, ('87.221.192.21', 58023))> failed with ValueError
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9bbe34c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9ccc9cc fileno=[Errno 9] Bad file des, ('87.221.192.21', 58025))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:11:00] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:11:00] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+87.221.192.21 - - [2012-10-02 21:11:04] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:11:04] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9ce4e3c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9cccf6c fileno=[Errno 9] Bad file des, ('87.221.192.21', 58128))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:13:32] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+87.221.192.21 - - [2012-10-02 21:13:32] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:13:32] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 68, in handle_one_response
+    jobs = self.transport.connect(session, request_method)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 155, in connect
+    return self.handle_post_response(session)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 67, in handle_post_response
+    messages = self.decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 16, in decode
+    return self.handler.environ['socketio'].decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/protocol.py", line 113, in decode
+    messages.append(json.loads(data[3:size]))
+  File "/usr/lib/python2.6/json/__init__.py", line 307, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.6/json/decoder.py", line 319, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.6/json/decoder.py", line 336, in raw_decode
+    obj, end = self._scanner.iterscan(s, **kw).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 183, in JSONObject
+    value, end = iterscan(s, idx=end, context=context).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 155, in JSONString
+    return scanstring(match.string, match.end(), encoding, strict)
+ValueError: Unterminated string starting at: line 1 column 39 (char 39)
+<Greenlet at 0x9bbe0cc: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9cd144c fileno=[Errno 9] Bad file des, ('87.221.192.21', 58139))> failed with ValueError
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9bbe7fc: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9cd922c fileno=[Errno 9] Bad file des, ('87.221.192.21', 58141))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:13:37] "Socket.IO subscribe: room-1"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 68, in handle_one_response
+    jobs = self.transport.connect(session, request_method)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 155, in connect
+    return self.handle_post_response(session)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 67, in handle_post_response
+    messages = self.decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 16, in decode
+    return self.handler.environ['socketio'].decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/protocol.py", line 113, in decode
+    messages.append(json.loads(data[3:size]))
+  File "/usr/lib/python2.6/json/__init__.py", line 307, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.6/json/decoder.py", line 319, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.6/json/decoder.py", line 336, in raw_decode
+    obj, end = self._scanner.iterscan(s, **kw).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 183, in JSONObject
+    value, end = iterscan(s, idx=end, context=context).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 155, in JSONString
+    return scanstring(match.string, match.end(), encoding, strict)
+ValueError: Unterminated string starting at: line 1 column 39 (char 39)
+<Greenlet at 0x9c5f07c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9ccce4c fileno=[Errno 9] Bad file des, ('87.221.192.21', 58148))> failed with ValueError
+
+87.221.192.21 - - [2012-10-02 21:13:40] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:13:41] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+87.221.192.21 - - [2012-10-02 21:13:43] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:13:43] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+87.221.192.21 - - [2012-10-02 21:14:11] "Socket.IO message: {u'action': u'message', u'message': u'FLEQ3-bot', u'room': 1, 'name': u'jorge'}"
+87.221.192.21 - - [2012-10-02 21:14:18] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:14:22] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 68, in handle_one_response
+    jobs = self.transport.connect(session, request_method)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 101, in connect
+    return self.handle_post_response(session)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 67, in handle_post_response
+    messages = self.decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 16, in decode
+    return self.handler.environ['socketio'].decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/protocol.py", line 113, in decode
+    messages.append(json.loads(data[3:size]))
+  File "/usr/lib/python2.6/json/__init__.py", line 307, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.6/json/decoder.py", line 319, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.6/json/decoder.py", line 336, in raw_decode
+    obj, end = self._scanner.iterscan(s, **kw).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 183, in JSONObject
+    value, end = iterscan(s, idx=end, context=context).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 155, in JSONString
+    return scanstring(match.string, match.end(), encoding, strict)
+ValueError: Unterminated string starting at: line 1 column 39 (char 39)
+<Greenlet at 0x9cc711c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9c60eec fileno=[Errno 9] Bad file des, ('87.221.192.21', 58195))> failed with ValueError
+
+87.221.192.21 - - [2012-10-02 21:14:28] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:14:29] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+87.221.192.21 - - [2012-10-02 21:15:29] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:15:29] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+87.221.192.21 - - [2012-10-02 21:15:36] "Socket.IO subscribe: room-1"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9cc711c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9cd980c fileno=[Errno 9] Bad file des, ('87.221.192.21', 58268))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:15:50] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+87.221.192.21 - - [2012-10-02 21:15:50] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:15:50] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 68, in handle_one_response
+    jobs = self.transport.connect(session, request_method)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 155, in connect
+    return self.handle_post_response(session)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 67, in handle_post_response
+    messages = self.decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 16, in decode
+    return self.handler.environ['socketio'].decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/protocol.py", line 113, in decode
+    messages.append(json.loads(data[3:size]))
+  File "/usr/lib/python2.6/json/__init__.py", line 307, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.6/json/decoder.py", line 319, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.6/json/decoder.py", line 336, in raw_decode
+    obj, end = self._scanner.iterscan(s, **kw).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 183, in JSONObject
+    value, end = iterscan(s, idx=end, context=context).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 155, in JSONString
+    return scanstring(match.string, match.end(), encoding, strict)
+ValueError: Unterminated string starting at: line 1 column 39 (char 39)
+<Greenlet at 0x9cc7e8c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9cd95ac fileno=[Errno 9] Bad file des, ('87.221.192.21', 58279))> failed with ValueError
+
+87.221.192.21 - - [2012-10-02 21:15:56] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:15:56] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9c5f39c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9bdc42c fileno=[Errno 9] Bad file des, ('87.221.192.21', 58329))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:16:30] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristinita'}"
+87.221.192.21 - - [2012-10-02 21:16:30] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:16:30] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristinita'}"
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 68, in handle_one_response
+    jobs = self.transport.connect(session, request_method)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 155, in connect
+    return self.handle_post_response(session)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 67, in handle_post_response
+    messages = self.decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/transports.py", line 16, in decode
+    return self.handler.environ['socketio'].decode(data)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/protocol.py", line 113, in decode
+    messages.append(json.loads(data[3:size]))
+  File "/usr/lib/python2.6/json/__init__.py", line 307, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.6/json/decoder.py", line 319, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.6/json/decoder.py", line 336, in raw_decode
+    obj, end = self._scanner.iterscan(s, **kw).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 183, in JSONObject
+    value, end = iterscan(s, idx=end, context=context).next()
+  File "/usr/lib/python2.6/json/scanner.py", line 55, in iterscan
+    rval, next_pos = action(m, context)
+  File "/usr/lib/python2.6/json/decoder.py", line 155, in JSONString
+    return scanstring(match.string, match.end(), encoding, strict)
+ValueError: Unterminated string starting at: line 1 column 39 (char 39)
+<Greenlet at 0x9cf402c: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9bc2aac fileno=[Errno 9] Bad file des, ('87.221.192.21', 58342))> failed with ValueError
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/gevent/greenlet.py", line 390, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/socketio/server.py", line 49, in handle
+    handler.handle()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 180, in handle
+    result = self.handle_one_request()
+  File "/usr/local/lib/python2.6/dist-packages/gevent/pywsgi.py", line 314, in handle_one_request
+    self.handle_one_response()
+  File "/usr/local/lib/python2.6/dist-packages/socketio/handler.py", line 58, in handle_one_response
+    self.handle_one_response(call_wsgi_app=False)
+TypeError: handle_one_response() got an unexpected keyword argument 'call_wsgi_app'
+<Greenlet at 0x9cf48ec: <bound method SocketIOServer.handle of <SocketIOServer at 0x9b3564c fileno=3 address=0.0.0.0:9000>>(<socket at 0x9d4aa4c fileno=[Errno 9] Bad file des, ('87.221.192.21', 58344))> failed with TypeError
+
+87.221.192.21 - - [2012-10-02 21:16:36] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:16:36] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristinita'}"
+87.221.192.21 - - [2012-10-02 21:16:40] "Socket.IO subscribe: room-1"
+87.221.192.21 - - [2012-10-02 21:16:40] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'cristinita'}"
+85.62.233.162 - - [2012-10-02 22:00:52] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'george'}"
+85.62.233.162 - - [2012-10-02 22:00:52] "Socket.IO subscribe: room-1"
+85.62.233.162 - - [2012-10-02 22:00:52] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'george'}"
+58.218.199.227 - - [2012-10-02 22:21:14] "GET http://proxyproxys.com/ HTTP/1.1" 404 1851 0.007391
+82.159.55.137 - - [2012-10-02 23:51:15] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-10-02 23:51:15] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+82.159.55.137 - - [2012-10-02 23:52:07] "Socket.IO subscribe: room-1"
+82.159.55.137 - - [2012-10-02 23:52:07] "Socket.IO message: {u'action': u'start', u'room': 1, u'name': u'FLEQ3-bot'}"
+58.218.199.250 - - [2012-10-03 00:25:14] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007465
+58.218.199.227 - - [2012-10-03 06:56:14] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007485
+58.218.199.250 - - [2012-10-03 15:37:54] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007423
+58.218.199.227 - - [2012-10-04 05:53:25] "GET http://59.53.91.9/httpproxy/proxyheader.php HTTP/1.1" 404 1911 0.007390
+58.218.199.227 - - [2012-10-04 08:44:23] "GET http://www.nsegame.com/proxy.php HTTP/1.1" 404 1878 0.007430
+58.218.199.250 - - [2012-10-04 15:55:27] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007426
+58.218.199.227 - - [2012-10-04 17:18:33] "GET http://proxyproxys.com/ HTTP/1.1" 404 1851 0.007352
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+58.218.199.250 - - [2012-11-09 13:46:48] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.122540
+58.218.199.227 - - [2012-11-09 23:06:03] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007448
+58.218.199.227 - - [2012-11-10 01:48:18] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007407
+58.218.199.250 - - [2012-11-10 12:41:37] "GET http://www.travelimgusa.com/ip.php HTTP/1.1" 404 1884 0.007413
+58.218.199.227 - - [2012-11-11 14:20:47] "GET http://59.53.91.9/httpproxy/proxyheader.php HTTP/1.1" 404 1911 0.007415
+58.218.199.250 - - [2012-11-11 17:26:20] "GET http://www.travelimgusa.com/ip.php HTTP/1.1" 404 1884 0.007643
+58.218.199.250 - - [2012-11-11 20:34:43] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007424
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+FAILED to start flash policy server: [Errno 13] Permission denied: ('0.0.0.0', 843)
+/usr/local/lib/python2.6/dist-packages/django/middleware/csrf.py:262: DeprecationWarning: CsrfResponseMiddleware and CsrfMiddleware are deprecated; use CsrfViewMiddleware and the template tag instead (see CSRF documentation).
+  DeprecationWarning
+58.218.199.227 - - [2012-12-05 03:41:52] "GET http://proxyproxys.com/ HTTP/1.1" 404 1851 0.131787
+58.218.199.250 - - [2012-12-05 18:36:41] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007557
+58.218.199.227 - - [2012-12-06 01:20:49] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007539
+58.218.199.227 - - [2012-12-06 04:04:23] "GET http://www.nsegame.com/proxy.php HTTP/1.1" 404 1878 0.007433
+58.218.199.227 - - [2012-12-06 06:45:23] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007424
+61.180.241.37 - - [2012-12-06 07:08:52] "GET http://www.sciencedirect.com/ HTTP/1.1" 404 1869 0.007616
+180.116.63.69 - - [2012-12-06 07:51:43] "GET http://www.baidu.com/ HTTP/1.1" 404 1845 0.007309
+180.116.63.69 - - [2012-12-06 13:03:10] "GET http://www.sciencedirect.com/science/browse HTTP/1.1" 404 1911 0.007488
+58.218.199.227 - - [2012-12-06 17:34:59] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007409
+58.218.199.227 - - [2012-12-09 16:09:44] "GET http://proxyproxys.com/ HTTP/1.1" 404 1851 0.000000
+58.218.199.227 - - [2012-12-09 16:09:44] "GET http://59.53.91.9/httpproxy/proxyheader.php HTTP/1.1" 404 1911 0.000000
+58.218.199.250 - - [2012-12-09 16:09:44] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.000000
+58.218.199.227 - - [2012-12-09 16:09:44] "GET http://proxyproxys.com/ HTTP/1.1" 404 1851 0.000000
+58.218.199.250 - - [2012-12-09 16:09:44] "GET http://www.travelimgusa.com/ip.php HTTP/1.1" 404 1884 0.000000
+58.218.199.227 - - [2012-12-09 22:45:15] "GET http://www.nsegame.com/proxy.php HTTP/1.1" 404 1878 0.007422
+58.218.199.227 - - [2012-12-10 04:15:03] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007478
+58.218.199.227 - - [2012-12-10 20:36:34] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007797
+58.218.199.227 - - [2012-12-11 10:14:54] "GET http://www.nsegame.com/proxy.php HTTP/1.1" 404 1878 0.007418
+58.218.199.250 - - [2012-12-11 17:10:01] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007378
+58.218.199.227 - - [2012-12-11 18:25:22] "GET http://www.nsegame.com/proxy.php HTTP/1.1" 404 1878 0.007438
+58.218.199.227 - - [2012-12-12 02:37:41] "GET http://proxyproxys.com/ HTTP/1.1" 404 1851 0.007331
+58.218.199.250 - - [2012-12-12 13:18:36] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007396
+58.218.199.227 - - [2012-12-13 11:52:53] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007425
+58.218.199.250 - - [2012-12-14 00:33:12] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007430
+58.218.199.227 - - [2012-12-14 04:45:44] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007425
+58.218.199.227 - - [2012-12-14 19:02:20] "GET http://proxyproxys.com/ HTTP/1.1" 404 1851 0.007337
+58.218.199.250 - - [2012-12-15 10:57:23] "GET http://www.travelimgusa.com/ip.php HTTP/1.1" 404 1884 0.007474
+42.227.234.36 - - [2012-12-15 11:40:54] "GET http://www.sciencedirect.com/ HTTP/1.1" 404 1869 0.007353
+58.218.199.227 - - [2012-12-15 14:49:08] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.009967
+58.218.199.227 - - [2012-12-15 23:21:15] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007420
+58.218.199.250 - - [2012-12-16 01:21:42] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007453
+58.218.199.250 - - [2012-12-16 04:16:05] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007441
+58.218.199.227 - - [2012-12-16 16:15:46] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007428
+58.218.199.250 - - [2012-12-18 10:04:20] "GET http://www.travelimgusa.com/ip.php HTTP/1.1" 404 1884 0.007464
+58.218.199.227 - - [2012-12-18 12:27:23] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007380
+58.218.199.250 - - [2012-12-18 19:13:24] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007408
+58.218.199.250 - - [2012-12-21 21:08:18] "GET http://www.travelimgusa.com/ip.php HTTP/1.1" 404 1884 0.007426
+58.218.199.250 - - [2012-12-22 02:49:16] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007412
+58.218.199.250 - - [2012-12-22 23:33:28] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007397
+58.218.199.250 - - [2012-12-23 05:25:21] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007862
+58.218.199.250 - - [2012-12-24 07:05:40] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007411
+58.218.199.250 - - [2012-12-24 09:58:08] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007436
+58.218.199.250 - - [2012-12-24 21:17:32] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007432
+58.218.199.250 - - [2012-12-25 00:08:21] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007404
+58.218.199.250 - - [2012-12-25 11:30:05] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007416
+58.218.199.250 - - [2012-12-25 14:18:32] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007427
+58.218.199.250 - - [2012-12-25 17:08:43] "GET http://www.travelimgusa.com/ip.php HTTP/1.1" 404 1884 0.007429
+58.218.199.250 - - [2012-12-26 15:42:58] "GET http://www.travelimgusa.com/ip.php HTTP/1.1" 404 1884 0.007410
+58.218.199.250 - - [2012-12-27 08:46:45] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007407
+58.218.199.250 - - [2012-12-27 11:36:10] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007555
+58.218.199.250 - - [2012-12-28 04:06:45] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007464
+58.218.199.250 - - [2012-12-29 14:19:51] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007446
+58.218.199.250 - - [2012-12-29 17:11:01] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007838
+58.218.199.250 - - [2012-12-30 07:19:54] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007434
+58.218.199.250 - - [2012-12-30 12:57:01] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007412
+58.218.199.250 - - [2012-12-30 18:37:28] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007448
+58.218.199.250 - - [2012-12-30 21:27:49] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007419
+58.218.199.250 - - [2012-12-31 08:42:50] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007421
+58.218.199.250 - - [2012-12-31 11:32:21] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007501
+58.218.199.250 - - [2012-12-31 17:15:38] "GET http://www.travelimgusa.com/ip.php HTTP/1.1" 404 1884 0.007406
+58.218.199.250 - - [2012-12-31 22:58:19] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007408
+58.218.199.250 - - [2013-01-01 18:51:59] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007402
+58.218.199.250 - - [2013-01-01 21:42:03] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007446
+58.218.199.250 - - [2013-01-02 00:34:28] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007442
+58.218.199.250 - - [2013-01-03 01:57:06] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007433
+58.218.199.250 - - [2013-01-03 04:46:01] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007895
+58.218.199.250 - - [2013-01-03 10:23:05] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007397
+58.218.199.250 - - [2013-01-04 12:14:31] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007383
+58.218.199.250 - - [2013-01-05 12:06:16] "GET http://61.152.144.145/judge.php HTTP/1.1" 404 1875 0.007421
+58.218.199.250 - - [2013-01-05 21:06:14] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007429
+58.218.199.250 - - [2013-01-06 03:14:53] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007417
+58.218.199.250 - - [2013-01-06 18:26:16] "GET http://59.53.91.9/proxy/judge.php HTTP/1.1" 404 1881 0.007589
+58.218.199.250 - - [2013-01-07 15:37:26] "GET http://www.verysurf.com/proxyheader.php HTTP/1.1" 404 1899 0.007437
+58.218.199.250 - - [2013-01-07 18:29:16] "GET http://www.piggmail.com/proxyheader.php HTTP/1.1" 404 1899 0.007458
+Unknown command: 'runserver_socketio'
+Type 'manage.py help' for usage.
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+Unknown command: 'runserver_socketio'
+Type 'manage.py help' for usage.
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+Unknown command: 'runserver_socketio'
+Type 'manage.py help' for usage.
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+Unknown command: 'runserver_socketio'
+Type 'manage.py help' for usage.
+/home/jgonzalez/virtualenvs/fleq/fleq/launch_socketio.sh: line 3: ../bin/active: No such file or directory
+Unknown command: 'runserver_socketio'
+Type 'manage.py help' for usage.

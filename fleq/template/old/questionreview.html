@@ -1,0 +1,43 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+
+	{% if questionReview %}
+		{% if user_me.user == questionReview.player or user_me.user == questionReview.game.round.tournament.admin or user_me.user.is_superuser %}
+			<h2 class="title">{{ lang.title_question_reviews }} #{{ questionReview.pk }}</h2>
+	
+			{% if not questionReview.resolution %}
+			<div class="info">{{ lang.warning_waiting_resolution }}</div>
+			{% endif %}
+
+			<div class="entry">
+				<h3>{{ questionReview.question }} ({{ questionReview.player.username }})</h3>
+				<h4>{{ lang.arguments }}</h4>		
+				<div class="warning">{{ questionReview.arguments }}</div>
+					{% if questionReview.resolution %}
+					<h4>{{ lang.resolution }}</h4>
+					<div class="success">{{ questionReview.resolution }}</div>
+					{% else %}
+						{% if user_me.user == questionReview.game.round.tournament.admin %}
+						<form id="newResolutionQuestionReviewForm" action="." method="POST" enctype="multipart/form-data">
+							<h4>{{ lang.resolution }}</h4><textarea id="id_arguments" rows="10" cols="40" name="resolution"></textarea>
+							<center>
+								<a href="#" onclick="document.getElementById('newResolutionQuestionReviewForm').submit();" class="button save-big">{{ lang.button_save_question_review_resolution }}</a>
+							</center>
+						</form>					
+						{% endif %}
+					{% endif %}
+				</div>
+		{% else %}
+			<h2 class="title">{{ lang.error_title_game_no_exists }}</h2>
+			<div class="error">{{ lang.error_question_review_no_exists }}</div>				
+		{% endif %}
+	{% else %}
+		<h2 class="title">{{ lang.error_title_game_no_exists }}</h2>
+		<div class="error">{{ lang.error_question_review_no_exists }}</div>
+	{% endif %}
+</div>
+{% endblock %}

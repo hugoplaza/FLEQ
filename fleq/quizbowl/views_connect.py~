@@ -1,0 +1,670 @@
+﻿# -*- coding: utf-8 -*-
+
+#############################################################################
+#                                                                           #
+#  FLEQ (Free LibreSoft Educational Quizbowl)                               #
+#  A synchronous on-line competition software to improve and                #
+#  motivate learning.                                                       #
+#                                                                           #
+#  Copyright (C) 2012  Arturo Moral, Gregorio Robles & Félix Redondo        #
+#                                                                           #
+#  This program is free software: you can redistribute it and/or modify     #
+#  it under the terms of the GNU Affero General Public License as           #
+#  published by the Free Software Foundation, either version 3 of the       #
+#  License, or (at your option) any later version.                          #
+#                                                                           #
+#  This program is distributed in the hope that it will be useful,          #
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of           #
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            #       
+#  GNU Affero General Public License for more details.                      #
+#                                                                           #
+#  You should have received a copy of the GNU Affero General Public License #
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.    #
+#                                                                           #
+#  Contact authors : Arturo Moral <amoral@gmail.com>                        #
+#                    Gregorio Robles <grex@gsyc.urjc.es>                    #
+#                    Félix Redondo <felix.redondo.sierra@gmail.com>			 #
+#                                                                           #
+#############################################################################
+
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django import forms
+from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response
+from django.conf import settings
+
+from quizbowl.models import UserProfile, RecoverUser
+from quizbowl.views_language import strLang, setBox
+from quizbowl.views_tournaments_api import *
+from quizbowl.views_notify import notify_user
+
+import random, string # Para generar la key de cada clase
+
+##################################
+# REGISTER
+##################################
+
+class RegisterForm(forms.Form):
+	username = forms.CharField(max_length=100)
+	first_name = forms.CharField(max_length=100)
+	last_name = forms.CharField(max_length=100)
+	password = forms.CharField(widget=forms.PasswordInput(),max_length=100)
+	password2 = forms.CharField(widget=forms.PasswordInput(),max_length=100,label=(strLang()['label_password2']))
+	email = forms.EmailField(max_length=100)
+	
+	def clean_username(self):
+		username = self.cleaned_data.get('username')
+		try:
+			user = User.objects.get(username=username)
+		except User.DoesNotExist:
+			return username
+		raise forms.ValidationError(strLang()['error_register_username_exists'])
+	
+	def clean_email(self):
+		email = self.cleaned_data.get('email')
+		try:
+			email = User.objects.get(email=email)
+		except User.DoesNotExist:
+			return email
+		raise forms.ValidationError(strLang()['error_register_email_exists'])
+
+	def clean_first_name(self):
+		first_name = self.cleaned_data.get('first_name')
+		if not first_name:
+			raise forms.ValidationError(strLang()['error_register_first_name_required'])
+		return first_name
+		
+	def clean_last_name(self):
+		last_name = self.cleaned_data.get('last_name')
+		if not last_name:
+			raise forms.ValidationError(strLang()['error_register_last_name_required'])
+		return last_name
+
+	def clean(self):
+		cleaned_data = super(RegisterForm, self).clean()
+		password = self.cleaned_data.get('password')
+		password2 = self.cleaned_data.get('password2')
+		if password != password2:
+			self._errors["password"] = self.error_class([strLang()['error_register_passwords_differents']])
+			self._errors["password2"] = self.error_class([strLang()['error_register_passwords_differents']])
+			
+		return cleaned_data
+
+# Save a new user from register form
+def register(request):
+
+	# Load strings language to template login.html
+	try:
+		lang = strLang()
+	except:
+		lang = ''
+
+	if request.method == 'POST':
+		registerForm = RegisterForm(request.POST) # A form bound to the POST data
+		loginForm = LoginForm()
+		if registerForm.is_valid(): 
+			user = User.objects.create_user(request.POST['username'], request.POST['email'], request.POST['password'])
+			user.is_staff = False
+			user.first_name = request.POST['first_name']
+			user.last_name = request.POST['last_name']
+			userProfile = UserProfile(user=user)
+			user.save()
+			userProfile.save()
+
+			loginForm = LoginForm()
+			registerForm = RegisterForm()
+
+			# We show a notification user
+			try:
+	 			box = setBox('success_register_account')
+			except:
+				box = ''
+
+			return render_to_response('login.html', {
+				'user_me': request.user,
+				'registerForm': registerForm,
+				'loginForm': loginForm,
+				'box': box,
+				'lang': lang,
+			})
+		else:
+			return render_to_response('login.html', {
+				'user_me': request.user,
+				'registerForm': registerForm,
+				'loginForm': loginForm,
+				'lang': lang,
+			})
+	else: # If get request, generate a new form
+		registerForm = RegisterForm() # An unbound form
+		loginForm = LoginForm()
+
+		# Must we show a notification user?
+		try:
+	 		if request.GET['status']:
+	 			box = setBox(request.GET['status'])
+		except:
+			box = ''
+
+		return render_to_response('login.html', {
+			'user_me': request.user,
+			'registerForm': registerForm,
+			'loginForm': loginForm,
+			'lang': lang,
+			'box': box,
+		})
+
+##################################
+# LOGIN, LOGOUT
+##################################
+
+class LoginForm(forms.Form):
+	username = forms.CharField(max_length=100)
+	password = forms.CharField(widget=forms.PasswordInput(),max_length=100)
+	
+	def clean_password(self):
+		password = self.cleaned_data.get('password')
+		if not password: raise forms.ValidationError(strLang()['error_login_password_required'])	
+		return password
+
+	def clean_username(self):
+		username = self.cleaned_data.get('username')
+		if not username: raise forms.ValidationError(strLang()['error_login_username_required'])	
+		return username
+	
+	def clean(self):
+		cleaned_data = super(LoginForm, self).clean()
+		username = self.cleaned_data.get('username')
+		password = self.cleaned_data.get('password')
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			if not user.is_active:
+				raise forms.ValidationError(strLang()['error_login_failed'])
+		else:
+			raise forms.ValidationError(strLang()['error_login_failed'])
+		
+		return cleaned_data
+
+# Login to the app
+def mylogin(request):
+
+	# Load strings language to template login.html
+	try:
+		lang = strLang()
+	except:
+		lang = ''
+
+	if request.method == 'POST': # If the form has been submitted...
+		loginForm = LoginForm(request.POST) # A form bound to the POST data
+		if loginForm.is_valid(): # All validation rules pass
+			user = authenticate(username=request.POST['username'], password=request.POST['password'])
+			login(request, user)
+			return HttpResponseRedirect('/my-tournaments/')
+		else:
+			registerForm = RegisterForm()
+			return render_to_response('login.html', {
+				'loginForm': loginForm,
+				'registerForm': registerForm,
+				'lang': lang,
+			})			
+	else:
+		loginForm = LoginForm() # An unbound form
+		registerForm = RegisterForm()
+		return render_to_response('login.html', {
+			'loginForm': loginForm,
+			'registerForm': registerForm,
+			'lang': lang,
+		})
+
+# Logout
+def mylogout(request):
+  logout(request)
+  return HttpResponseRedirect('/login')
+
+##################################
+# EDIT PROFILE / CHANGE PASSWORD
+##################################
+
+class EditProfileForm(forms.Form):
+	first_name = forms.CharField(
+		max_length=100
+	)
+	last_name = forms.CharField(
+		max_length=100
+	)
+	email = forms.EmailField(
+		max_length=100
+	)
+	avatar = forms.Field(
+		widget=forms.FileInput,
+		required=False,
+		label=(strLang()['label_change_avatar']),
+		help_text=(strLang()['help_change_avatar'])
+	)
+
+	def __init__(self, *args, **kwargs):
+		self.request = kwargs.pop('request', None)
+		super(EditProfileForm, self).__init__(*args, **kwargs)	
+
+	def clean_email(self):
+		email = self.cleaned_data.get('email')
+		try:
+			userEmail = User.objects.get(email=email)
+			if self.request.user == userEmail:
+				return email
+		except User.DoesNotExist:
+			return email
+			
+		raise forms.ValidationError(strLang()['error_register_email_exists'])
+
+	def clean_first_name(self):
+		first_name = self.cleaned_data.get('first_name')
+		if not first_name:
+			raise forms.ValidationError(strLang()['error_register_first_name_required'])
+		return first_name
+		
+	def clean_last_name(self):
+		last_name = self.cleaned_data.get('last_name')
+		if not last_name:
+			raise forms.ValidationError(strLang()['error_register_last_name_required'])
+		return last_name
+
+def editProfile(request):
+	# Load strings language to template login.html
+	try:
+		lang = strLang()
+	except:
+		lang = ''
+
+	if request.user.has_perm('quizbowl.add_tournament'):
+		admin_user = True
+	else:
+		admin_user = False
+
+	# Info about user
+	user_me = UserProfile.objects.get(user=request.user)
+
+	# SIDEBAR INFO
+	myTournaments = myActiveTournaments(request)
+	myAdmnTournaments = myAdminTournaments(request)
+	todayGames = myTodayGames(request)
+	nextGames = myNextGames(request)
+	pendingQR = myAdminPendingQuestionReviews(request.user)
+
+	if request.method == 'POST':
+		editProfileForm = EditProfileForm(request.POST, request.FILES, request=request) # A form bound to the POST data
+		if editProfileForm.is_valid(): 
+			user = user_me.user
+			user.first_name = request.POST['first_name']
+			user.last_name = request.POST['last_name']
+			user.email = request.POST['email']
+			user.save()
+					
+			if 'avatar' in request.FILES:
+				avatar = request.FILES['avatar']
+				user_me.avatar = avatar
+				user_me.save()
+
+			# We show a notification user
+			try:
+	 			box = setBox('success_edit_account')
+			except:
+				box = ''
+			
+			editProfileForm = EditProfileForm(initial={'first_name': user_me.user.first_name, 'last_name': user_me.user.last_name, 'email': user_me.user.email})
+
+			return render_to_response('editprofile.html', {
+				'user_me': user_me,
+				'editProfileForm': editProfileForm,
+				'box': box,
+				'lang': lang,
+				'myTournaments': myTournaments,
+				'myAdminTournaments': myAdmnTournaments,
+				'todayGames': todayGames,
+				'nextGames': nextGames,
+				'admin_user': admin_user,
+				'pendingQR': pendingQR,
+			})
+		else:
+			return render_to_response('editprofile.html', {
+				'user_me': user_me,
+				'editProfileForm': editProfileForm,
+				'lang': lang,
+				'myTournaments': myTournaments,
+				'myAdminTournaments': myAdmnTournaments,
+				'todayGames': todayGames,
+				'nextGames': nextGames,
+				'admin_user': admin_user,
+				'pendingQR': pendingQR,
+			})
+	else: # If get request, generate a new form
+		editProfileForm = EditProfileForm(initial={'first_name': request.user.first_name, 'last_name': request.user.last_name, 'email': request.user.email})
+
+		# Must we show a notification user?
+		try:
+	 		if request.GET['status']:
+	 			box = setBox(request.GET['status'])
+		except:
+			box = ''
+
+		return render_to_response('editprofile.html', {
+			'user_me': user_me,
+			'editProfileForm': editProfileForm,
+			'lang': lang,
+			'myTournaments': myTournaments,
+			'myAdminTournaments': myAdmnTournaments,
+			'todayGames': todayGames,
+			'nextGames': nextGames,
+			'admin_user': admin_user,
+			'pendingQR': pendingQR,
+		})
+
+class ChangePasswordForm(forms.Form):
+	currentpassword = forms.CharField(widget=forms.PasswordInput(),max_length=100,label=(strLang()['label_current_password']))
+	newpassword = forms.CharField(widget=forms.PasswordInput(),max_length=100,label=(strLang()['label_new_password']))	
+	newpassword2 = forms.CharField(widget=forms.PasswordInput(),max_length=100,label=(strLang()['label_new_password2']))
+
+	def __init__(self, *args, **kwargs):
+		self.request = kwargs.pop('request', None)
+		super(ChangePasswordForm, self).__init__(*args, **kwargs)
+
+	def clean_currentpassword(self):
+		currentPassword = self.cleaned_data.get('currentpassword')
+		if not currentPassword:
+			raise forms.ValidationError(strLang()['error_change_password_empty_field'])
+		else:
+			if not self.request.user.check_password(currentPassword):
+				raise forms.ValidationError(strLang()['error_current_password_incorrect'])
+		return currentPassword
+
+	def clean_newpassword(self):
+		newPassword = self.cleaned_data.get('newpassword')
+		if not newPassword:
+			raise forms.ValidationError(strLang()['error_change_password_empty_field'])
+		return newPassword
+
+	def clean_newpassword2(self):
+		newPassword2 = self.cleaned_data.get('newpassword2')
+		if not newPassword2:
+			raise forms.ValidationError(strLang()['error_change_password_empty_field'])
+		return newPassword2
+
+	def clean(self):
+		cleaned_data = super(ChangePasswordForm, self).clean()
+		password = self.cleaned_data.get('newpassword')
+		password2 = self.cleaned_data.get('newpassword2')
+		if password != password2:
+			self._errors["newpassword"] = self.error_class([strLang()['error_change_password_differents']])
+			self._errors["newpassword2"] = self.error_class([strLang()['error_change_password_differents']])
+			
+		return cleaned_data
+
+def changePassword(request):
+	try:
+		lang = strLang()
+	except:
+		lang = ''
+
+	# Info about user
+	user_me = UserProfile.objects.get(user=request.user)
+
+	# SIDEBAR INFO
+	myTournaments = myActiveTournaments(request)
+	myAdmnTournaments = myAdminTournaments(request)
+	todayGames = myTodayGames(request)
+	nextGames = myNextGames(request)
+	pendingQR = myAdminPendingQuestionReviews(request.user)
+
+	if request.user.has_perm('quizbowl.add_tournament'):
+		admin_user = True
+	else:
+		admin_user = False
+
+	if request.method == 'POST':
+		changePasswordForm = ChangePasswordForm(request.POST, request=request) # A form bound to the POST data
+		if changePasswordForm.is_valid(): 
+			user = user_me.user
+			user.set_password(request.POST['newpassword'])
+			user.save()
+
+			# We show a notification user
+			try:
+	 			box = setBox('success_change_password')
+			except:
+				box = ''
+				
+			changePasswordForm = ChangePasswordForm()
+
+			return render_to_response('changepassword.html', {
+				'user_me': user_me,
+				'changePasswordForm': changePasswordForm,
+				'box': box,
+				'lang': lang,
+				'myTournaments': myTournaments,
+				'myAdminTournaments': myAdmnTournaments,
+				'todayGames': todayGames,
+				'nextGames': nextGames,	
+				'admin_user': admin_user,
+				'pendingQR': pendingQR,	
+			})
+		else:
+			return render_to_response('changepassword.html', {
+				'user_me': user_me,
+				'changePasswordForm': changePasswordForm,
+				'lang': lang,
+				'myTournaments': myTournaments,
+				'myAdminTournaments': myAdmnTournaments,
+				'todayGames': todayGames,
+				'nextGames': nextGames,
+				'admin_user': admin_user,
+				'pendingQR': pendingQR,
+			})
+	else: # If get request, generate a new form
+		changePasswordForm = ChangePasswordForm()
+
+		# Must we show a notification user?
+		try:
+	 		if request.GET['status']:
+	 			box = setBox(request.GET['status'])
+		except:
+			box = ''
+
+		return render_to_response('changepassword.html', {
+			'user_me': user_me,
+			'changePasswordForm': changePasswordForm,
+			'lang': lang,
+			'myTournaments': myTournaments,
+			'myAdminTournaments': myAdmnTournaments,
+			'todayGames': todayGames,
+			'nextGames': nextGames,
+			'admin_user': admin_user,		
+		})
+
+##################################
+# RECOVER USER
+##################################
+
+class RecoverUserForm(forms.Form):
+	username = forms.CharField(label=(strLang()['label_recover_username']), required = True)
+	email = forms.EmailField(label=(strLang()['label_recover_email']), required = True)
+
+	def __init__(self, *args, **kwargs):
+		self.request = kwargs.pop('request', None)
+		super(RecoverUserForm, self).__init__(*args, **kwargs)
+
+	def clean_username(self):
+		username = self.cleaned_data.get('username')
+		try:
+			user = User.objects.get(username=username)
+			if user:
+				return username
+		except User.DoesNotExist:
+			raise forms.ValidationError(strLang()['error_recover_user_unknown'])
+
+	def clean_email(self):
+		email = self.cleaned_data.get('email')
+		try:
+			user = User.objects.get(email=email)
+			if user:			
+				return email
+		except User.DoesNotExist:
+			raise forms.ValidationError(strLang()['error_recover_email_unknown'])
+
+	def clean(self):
+		cleaned_data = super(RecoverUserForm, self).clean()
+		username = self.cleaned_data.get('username')
+		email = self.cleaned_data.get('email')
+		userName = ''
+		userEmail = ''
+		try:
+			userName = User.objects.get(username=username)
+			userEmail = User.objects.get(email=email)
+			if userName == userEmail and userName != '' and userEmail != '':
+				return cleaned_data
+		except User.DoesNotExist:
+			if userName:
+				self._errors["email"] = self.error_class([strLang()['error_recover_email_unknown']])
+			if userEmail:
+				self._errors["username"] = self.error_class([strLang()['error_recover_user_unknown']])
+		
+		return cleaned_data
+
+def recoverAccount(request):
+	if request.user.is_authenticated():
+		return HttpResponseRedirect('/my-tournaments/')
+
+	try:
+		lang = strLang()
+	except:
+		lang = ''
+
+	# Info about user
+	user_me = request.user
+
+	if request.method == 'POST':
+		recoverUserForm = RecoverUserForm(request.POST, request=request) # A form bound to the POST data
+		if recoverUserForm.is_valid():
+			user = User.objects.get(username=request.POST['username'], email=request.POST['email'])
+			rkey = "".join(random.sample(string.letters+string.digits, 16))
+			
+			recoverUser = RecoverUser(user=user,code=rkey)
+			recoverUser.save()
+			# We show a notification user
+			try:
+ 				box = setBox('success_recover_account_email_sent')
+			except:
+				box = ''
+				
+			recoverUserForm = RecoverUserForm()
+			
+			notify_user(user, 'recover_user', recoverUser)
+
+			return render_to_response('recoveruser.html', {
+				'user_me': user_me,
+				'recoverUserForm': recoverUserForm,
+				'box': box,
+				'lang': lang,				
+			})
+		else:
+			return render_to_response('recoveruser.html', {
+				'user_me': user_me,
+				'recoverUserForm': recoverUserForm,
+				'lang': lang,	
+			})
+	else: # If get request, generate a new form
+		recoverUserForm = RecoverUserForm()
+
+		# Must we show a notification user?
+		try:
+	 		if request.GET['status']:
+	 			box = setBox(request.GET['status'])
+		except:
+			box = ''
+
+		return render_to_response('recoveruser.html', {
+			'user_me': user_me,
+			'recoverUserForm': recoverUserForm,
+			'lang': lang,		
+			'box': box,	
+		})
+
+class RecoverNewPasswordForm(forms.Form):
+	newpassword = forms.CharField(widget=forms.PasswordInput(),max_length=100,label=(strLang()['label_new_password']))	
+	newpassword2 = forms.CharField(widget=forms.PasswordInput(),max_length=100,label=(strLang()['label_new_password2']))
+
+	def __init__(self, *args, **kwargs):
+		self.request = kwargs.pop('request', None)
+		super(RecoverNewPasswordForm, self).__init__(*args, **kwargs)
+
+	def clean_newpassword(self):
+		newPassword = self.cleaned_data.get('newpassword')
+		if not newPassword:
+			raise forms.ValidationError(strLang()['error_change_password_empty_field'])
+		return newPassword
+
+	def clean_newpassword2(self):
+		newPassword2 = self.cleaned_data.get('newpassword2')
+		if not newPassword2:
+			raise forms.ValidationError(strLang()['error_change_password_empty_field'])
+		return newPassword2
+
+	def clean(self):
+		cleaned_data = super(RecoverNewPasswordForm, self).clean()
+		password = self.cleaned_data.get('newpassword')
+		password2 = self.cleaned_data.get('newpassword2')
+		if password != password2:
+			self._errors["newpassword"] = self.error_class([strLang()['error_change_password_differents']])
+			self._errors["newpassword2"] = self.error_class([strLang()['error_change_password_differents']])
+			
+		return cleaned_data
+
+def recoverAccountNewPassword(request, ruid):
+	try:
+		lang = strLang()
+	except:
+		lang = ''
+
+	ruid = ruid.replace("#", "")
+
+	if request.method == 'POST':
+		newPasswordForm = RecoverNewPasswordForm(request.POST, request=request) # A form bound to the POST data
+		if newPasswordForm.is_valid():
+			try:
+				recoverUser = RecoverUser.objects.get(code=ruid)
+				user = recoverUser.user
+				user.set_password(request.POST['newpassword'])
+				user.save()
+				# Delete all requests from user to change password
+				allRecoverUser = RecoverUser.objects.filter(user=user)
+				for recoverUser in allRecoverUser:
+					recoverUser.delete()
+			except RecoverUser.DoesNotExist:
+				return HttpResponseRedirect('/recover-account/?status=error_unknown_code')			
+				
+			return HttpResponseRedirect('/register/?status=success_change_password')
+		else:
+			return render_to_response('recovernewpassword.html', {
+				'newPasswordForm': newPasswordForm,
+				'lang': lang,
+				'ruid': ruid,
+			})
+	else: # If get request, generate a new form
+		newPasswordForm = RecoverNewPasswordForm()
+
+		try:
+			recoverUser = RecoverUser.objects.get(code=ruid)
+		except RecoverUser.DoesNotExist:
+				return HttpResponseRedirect('/recover-account/?status=error_unknown_code')	
+
+		# Must we show a notification user?
+		try:
+	 		if request.GET['status']:
+	 			box = setBox(request.GET['status'])
+		except:
+			box = ''
+
+		return render_to_response('recovernewpassword.html', {
+			'newPasswordForm': newPasswordForm,
+			'lang': lang,
+			'ruid': ruid,
+		})

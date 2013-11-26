@@ -1,0 +1,120 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<h2 class="title">Rules</h2>
+	<div class="entry">
+		<h3 class="title">Users</h3>
+		<ol>
+			<li>
+				There are two different types of users in FLEQ: <b>administrators</b> and <b>players</b>. 
+			</li>
+			<li>
+				By default, a new user registered will be a player user
+				(<a href="/faq#tournament_faq1">more info</a>).
+			</li>
+			<li>
+				An administrator is a user who can administer tournaments, although he/she could participate in other as player in other tournaments too.
+			</li>
+			<li>
+				<b>What kind of actions can a player do?</b><br>
+				<ul>
+					<li>
+						Join a tournament.
+					</li>
+					<li>
+						Obtain details about a tournament.
+					</li>
+					<li>
+						Obtain details about a game.
+					</li>
+					<li>
+						Modify hour and date with his preferences for next games.
+					</li>
+					<li>
+						Play a game.
+					</li>
+					<li>
+						Request a question to be reviewed by the administrator.
+					</li>
+					<li>
+						Check the status of a question review.
+					</li>
+				</ul>
+			</li>
+			<li>
+				<b>What kind of actions can an administrator do?</b> All the ones that a player can do and...<br>
+				<ul>
+					<li>
+						Upload questions.
+					</li>
+					<li>
+						Create new tournaments.
+					</li>
+					<li>
+						Resolve a question review.
+					</li>
+					<li>
+						See information about rounds, games, scores about the tournaments he/she administers.
+					</li>
+				</ul>
+			</li>
+		 </ol>
+
+		<h3 class="title">Tournaments</h3>
+		 <ol>
+		     <li>
+		         A tournament can be created only by one administrator.
+		     </li>
+		     <li>
+		         Each tournament is composed by one or more categories of questions. 
+		     </li>
+		     <li>
+		         Each tournament has a start date given by the administrator; the end date depends of number of
+					rounds (and the days for each round).
+		     </li>
+		     <li>
+		         A player can join a tournament until the start date.
+		     </li>
+		     <li>
+		         If at the start date of a tournament only one player has registered for it, the tournament is cancelled and the administrator and player are notified.
+		     </li>
+		 </ol>
+
+		<h3 class="title">Rounds</h3>
+		<ol>
+			<li>
+				Each round has as duration the number days selected by the administrator when configuring the tournament.
+			</li>
+			<li>
+				At the beginning of the round, FLEQ defines the games between players.
+			</li>
+			<li>
+				To equalize the level of opponents, games between players
+				are chosen using the <a href="http://en.wikipedia.org/wiki/Swiss-system_tournament">swiss-system</a>.
+			</li>
+			<li>
+				If the number of players is odd, in each round a player does not play and stays in a <i>round of reflection</i>.
+				The system will add 1 point to his tournament score; in the next round the player will play again.
+			</li>
+		</ol>
+
+		<h3 class="title">Games</h3>
+		<ol>
+			<li>
+				By default, the game starting hour and date is configured by the administrator.
+			</li>
+			<li>
+				Players can select other dates and times for a match in his preferences.
+				If the preferences of both players match, FLEQ changes date and time of the game.
+			</li>
+			<li>
+				The first player to answer 10 questions correctly is the winner of a quizbowl game.
+			</li>
+			<li>
+				The winner of a game adds 1 point to his tournament score.
+			</li>
+		</ol>
+	</div>
+</div>
+{% endblock %}

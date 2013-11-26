@@ -1,0 +1,53 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+
+	<h2 class="title">{{ lang.title_my_question_reviews }}</h2>
+	<div class="entry">
+		{% if myQuestionReviews %}
+			<p>
+			{% for qr in myQuestionReviews %}
+				{% if qr.resolution %}
+					<div class="success">({{ lang.closed }}) <a href="/question-review/{{ qr.pk }}/">{{ qr.question }}</a> - {{ qr.game.round.tournament.name }}</div>
+				{% else %}
+					<div class="warning">({{ lang.pending }}) <a href="/question-review/{{ qr.pk }}/">{{ qr.question }}</a> - {{ qr.game.round.tournament.name }}</div>
+				{% endif %}
+					</center>	
+					<hr />
+				{% endfor %}
+			</p>
+		{% else %}
+			<div class="error">{{ lang.error_question_reviews_no_exists }}</div>
+		{% endif %}
+	</div>	
+</div>
+
+{% if myAdminQuestionReviews %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+
+	<h2 class="title">{{ lang.title_my_admin_question_reviews }}</h2>
+	<div class="entry">
+		{% if myAdminQuestionReviews %}
+			<p>
+			{% for qr in myAdminQuestionReviews %}
+				{% if qr.resolution %}
+					<div class="success">({{ lang.closed }}) <a href="/question-review/{{ qr.pk }}/">{{ qr.question }}</a> - {{ qr.player }} ({{ qr.game.round.tournament.name }})</div>
+				{% else %}
+					<div class="warning">({{ lang.pending }}) <a href="/question-review/{{ qr.pk }}/">{{ qr.question }}</a> - {{ qr.player }} ({{ qr.game.round.tournament.name }})</div>
+				{% endif %}
+					</center>	
+					<hr />
+				{% endfor %}
+			</p>
+		{% else %}
+			<div class="error">{{ lang.error_question_reviews_no_exists }}</div>
+		{% endif %}
+	</div>	
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,8 @@
+PhantomJS is launching GhostDriver...
+[INFO  - 2013-10-09T10:22:18.336Z] GhostDriver - Main - running on port 50021
+[INFO  - 2013-10-09T10:22:19.145Z] Session [ad5e58f0-30cc-11e3-ac7b-a312013c5863] - _decorateNewWindow - page.settings: {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux i686) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.2 Safari/534.34","webSecurityEnabled":true}
+[INFO  - 2013-10-09T10:22:19.145Z] Session [ad5e58f0-30cc-11e3-ac7b-a312013c5863] - page.customHeaders:  - {}
+[INFO  - 2013-10-09T10:22:19.146Z] Session [ad5e58f0-30cc-11e3-ac7b-a312013c5863] - CONSTRUCTOR - Desired Capabilities: {"platform":"ANY","browserName":"phantomjs","version":"","javascriptEnabled":true}
+[INFO  - 2013-10-09T10:22:19.146Z] Session [ad5e58f0-30cc-11e3-ac7b-a312013c5863] - CONSTRUCTOR - Negotiated Capabilities: {"browserName":"phantomjs","version":"1.9.2","driverName":"ghostdriver","driverVersion":"1.0.4","platform":"linux-unknown-32bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2013-10-09T10:22:19.146Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: ad5e58f0-30cc-11e3-ac7b-a312013c5863
+[ERROR - 2013-10-09T10:23:00.186Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1381314180159

@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+	
+	<h2 class="title">{{ lang.title_edit_profile }}</h2>
+
+	<!-- Show errors from editProfileForm -->
+	{% if editProfileForm.errors %}<div class="error">{% endif %}
+	{% if editProfileForm.non_field_errors %}{% for error in editProfileForm.non_field_errors %}{{ error }}{% endfor %}<br />{% endif %}
+	{% for field in editProfileForm %}
+		{% if field.errors %}<u>{{ field.label_tag }}</u>: {% for error in field.errors %}{{ error }}{% endfor %}<br />{% endif %}
+	{% endfor %}
+	{% if editProfileForm.errors %}</div>{% endif %}
+
+	<div class="entry">
+		<form id="editProfileForm" action="." method="POST" enctype="multipart/form-data" >
+			{% for field in editProfileForm %}
+				{% if field.errors %}<div class="error">{% endif %}
+					<p>{{ field.label_tag }}:<br />{{ field }}</p>
+					<p class="help_text">{{ field.help_text }}</p>
+				{% if field.errors %}</div>{% endif %}
+			{% endfor %}		
+			<center>
+				<a href="#" onclick="document.getElementById('editProfileForm').submit();" class="button save-big">{{ lang.button_edit_profile }}</a>
+			</center>
+		</form>
+	</div>
+</div>
+{% endblock %}

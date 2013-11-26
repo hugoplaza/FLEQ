@@ -1,0 +1,337 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+
+	<div class="info">
+		Do you want to start playing with FLEQ? The following sections describe step by step how to do it.<br /><br />
+		If this is your first time using FLEQ, you can follow the following section in descending order.
+	</div>
+
+	<b><br />
+    <a href="#how_to1">How to register your nick on Freenode?</a><br />
+    <br />
+    <a href="#how_to2">How to register on FLEQ?</a><br />
+    <br />
+    <a href="#how_to3">How to upload questions to the system?</a><br />
+    <br />
+    <a href="#how_to4">How to create a tournament?</a><br />
+    <br />
+    <a href="#how_to5">How to join to a tournament?</a><br />
+    <br />
+    <a href="#how_to6">How to choose your start time preferences of a game?</a><br />
+    <br />
+    <a href="#how_to7">How to access Freenode using Webchat?</a><br />
+    <br />
+    <a href="#how_to8">How to play a game?</a><br />
+    <br />
+    <a href="#how_to9">How to request a review of a question in a game?</a><br />
+	</b><br />
+
+	<hr>
+
+	<div class="entry">
+   
+		<h3><a name="how_to1">How to register your nick on Freenode?</a></h2><br />
+		<p>
+			Here are the steps to register a nick on Freenode, essential before registering into FLEQ.
+			The steps are described using Webchat as Freenode IRC client, but you can use
+			<a href="faq.html#irc_faq3">any other client</a> to do it.<br />
+		</p>
+		<ol>
+			<li>
+				Go to the Play section, fill in the <i>Nickname</i> field with the nick you want to 
+				register, write the two words you see written in captcha and press <i>Connect</i>.<br />
+				<br />
+				<center><img src="/images/how_to/connect_to_freenode1.png"></center><br />
+			</li>
+			<li>
+				After accessing Freenode, execute on the bottom bar the command
+				<b><code>/msg nickserv info <i>&lt;nickname&gt;</i></code></b>, where you have to
+				replace <i><nickname></i> by the nickname/username you want to register.<br />
+				<br />
+				<center><img width="95%" src="/images/how_to/register_nick1.png"></center><br />
+			</li>
+			<li>
+				If after executing the command you receive a response saying that the nickname is
+				not registered, you can continue to the next point.<br />
+				<br />
+				<center><img width="95%" src="/images/how_to/register_nick2.png"></center><br />
+				Use the command <b><code>/nick <i>&lt;nick&gt;</i></code></b> to change your nickname
+				to the nickname you have chosen the last step.<br />
+				<br />
+				<center><img width="95%" src="/images/how_to/register_nick3.png"></center><br />
+			</li>
+			<li>
+				The last step will be to execute the command 
+				<b><code>/msg nickserv register <i>&lt;password&gt;</i> <i>&lt;email&gt;</i></code></b>,
+				where you have to replace <i>&lt;password&gt;</i> and <i>&lt;email&gt;</i> 
+				by a password and a valid email address respectively.<br />
+				<br />
+			</li>
+			<li>
+				At this point you have registered your nickname on Freenode. Do not forget to use it both for
+				playing the games and to register it in FLEQ.
+				
+			</li>
+		</ol>
+
+		<h3><a name="how_to2">How to register on FLEQ?</a></h2><br />
+		<p>
+			The only prerequisite before proceeding in this section is to have a registered your nick on Freenode,
+			as explained in the <a href="#how_to1">previous section</a>.
+		</p>
+		<ol>
+			<li>
+				The first step will be to access the <a href="/register">register section</a>.<br />
+				<br />
+				<center><img src="/images/how_to/create_account1.png"></center>
+			</li>
+			<li>
+            Now complete the fields of the form to create your account at FLEQ, and click the button to register.<br />
+            <div class="warning"><u>IMPORTANT INFO:</u> Don't forget to select the same <i>username/nickname</i> 
+            that you registered on Freenode before.</div>
+            <center><img src="/images/how_to/create_account2.png"></center>
+        </li>
+        <li>
+            If all fields are correct, your account has been registered and you can access to FLEQ project to
+            join and play games.
+        </li>
+		</ol>
+
+		<h3><a name="how_to3">How to upload questions to the system?</a></h2><br />
+			<p>
+				After having logged in with your account into FLEQ, if your account have administrator privileges, you can upload questions
+				to the system. Without questions, you cannot create a tournament.<br />
+			</p> 
+			<ol>
+				<li>
+					The first step will be to save the questions in a text file (use a
+					<a href="http://es.wikipedia.org/wiki/Editor_de_texto#Ejemplos">text editor</a> to do it, not a text processor but a 
+					text editor). Each line of that file will
+					contain a question in the following format:<br />
+					
+            <b><code>category[,category]*;question;answer1;[answer2;[answer3;[answer4;]]]</code><br /></b>
+
+				<div class="warning">
+					The brackets are optional fields and the asterisk means that the field can be repeated zero or many times.
+					<ul>
+						<li>
+							<u>Category</u>: Indicates the categories of the question. At least should have one. Separate them
+							by commas if they're more than one.
+						</li>
+						<li>
+							<u>Question</u>: Full text of the question.
+						</li>
+						<li>
+							<u>Answer1</u>: The correct answer to the question. This is the one that will be displayed to the players.
+						</li>
+						<li>
+							<u>Answer2</u>: It's optional and an alternative correct answer to the question. If included, part of it
+							will be used to help the players as a hint (if configured by the administrator).
+						</li>
+						<li>
+							<u>Answer3, answer4</u>: They are also optional and alternative correct responses to the question.
+						</li>
+					</ul>					
+				</div>
+				Example of the contents of a file with three questions:<br />
+				<br />
+				<code><b>
+					acertijos;¿De qué color era el caballo Blanco de Santiago?;Blanco;<br />
+					acrónimos,memes;¿Qué significa LOL?;Laughing Out Loud;Laugh Out Loud;Lots Of Laughs;<br />
+					arte,cultura general,personajes;¿Cuál era el nombre de la mujer del pintor Salvador 
+					Dalí?;Gala;Gala Dalí;Gala Eluard Dalí;Gala Éluard Dalí;<br />
+				</b></code>
+				<br />
+			</li>
+			<li>
+				To upload a question file select <i>Admin Panel/Load Questions</i> in the menu bar.<br />
+				<br />
+				<center><img src="/images/how_to/load_questions1.png"></center><br />
+			</li>
+			<li>
+				To select the file you want to upload, you just have to select it in your file browser.
+				The file should be formatted as defined above.<br />
+				<br />
+				<center><img src="/images/how_to/load_questions2.png"></center><br />
+				You can repeat these steps as many times as you want to add more questions to the system.<br />
+				<br />
+			</li>
+		</ol>
+
+		<h3><a name="how_to4">How to create a tournament?</a></h2><br />
+		<ol>
+			<li>
+				Now that you know that the system has stored the questions in the category you want your 
+				tournament, you can create the tournament. To do this, select <i>Admin Panel/New Tournament</i> in the menu bar.<br /> 
+				<br />
+				<center><img src="/images/how_to/create_tournament1.png"></center><br />
+			</li>
+			<li>
+				Complete the fields of the form without leaving any empty and click <i>Create New Tournament</i>.<br />
+				<br />
+				<center><img width="95%" src="/images/how_to/create_tournament2.png"></center><br />
+			</li>
+			<li>
+				If all fields are correctly completed, the tournament will be created
+				and you can access it in section <i>Tournaments / My Tournaments</i> in the menu bar or in your sidebar. However,
+				players can access to it in section <i>Tournaments / My Tournaments</i> in his menu bar.<br />
+				<br />
+				<center><img width="95%" src="/images/how_to/create_tournament3.png"></center><br />
+			</li>
+		</ol>
+		<h3><a name="how_to5">How to join to a tournament?</a></h2><br />
+		<p>
+			If you already have a registered nickname on Freenode and have the same nickname in FLEQ, follow these steps to join a tournament.
+		</p>
+		<ol>
+			<li>
+				In section <i>Login / Register</i>, enter your username and password and click the <i>Login</i> button.<br />
+				<br />
+				<center><img src="/images/how_to/login.png"></center><br />
+			</li>
+			<li>
+				In the menu bar, you can access all available tournaments. Click on <i>Tournaments / Tournaments</i> to see them.<br />
+				<br />
+				<center><img src="/images/how_to/join_tournament1.png"></center><br />
+			</li>
+			<li>
+				In the list of available tournaments, click on the <i>(+ Join)</i> button to join a tournament.<br />
+				<br />
+				<center><img src="/images/how_to/join_tournament2.png"></center><br />
+			</li>
+			<li>
+				If everything went OK, congratulations, from now you're a new player in this tournament. You can access to 
+				all information about your games in this tournament and table scores.<br />
+				<br />
+				<center><img src="/images/how_to/join_tournament3.png"></center><br />
+			</li>	
+		</ol>
+		<h3><a name="how_to6">How to choose your start time preferences of a game?</a></h2><br />
+		<p>
+			Every time a new round begins, the system schedules the games. At this stage, you'll be able to change the default time at which the 
+			game will be play. Just follow these steps to learn how to choose the hour(s) you prefer:<br />
+		</p>
+		<ol>
+			<li>
+				In your menu bar, in section <i>Tournaments / My Next Games</i> (or in your left sidebar as notification) you can see
+				your next games. Click to go to this section to select your preferred hour and date options for each game.<br />
+				<br />
+				<center><img width="95%" src="/images/how_to/select_start_time1.png"></center><br />
+			</li>
+			<li>
+				Now, you can select all starting hour and date combinations that you prefer to play the game. For example, you can select play
+				at 4 PM on April 13, 2012 and click <i>Save date and times to play</i>. After that, you can select play at 10 PM on 
+				April 13, 2012 and click again <i>Save date and times to play</i>. And again, you can select play at 16 PM on April 14, 2012.
+				All combinations are saved.<br />
+				<br />
+				<center><img width="95%" src="/images/how_to/select_start_time2.png"></center><br />
+			</li>
+			<li>
+				After your preferences have been saved, the system will check the preferences
+				of your opponent. If any of them matches the ones chosen by your opponent, the starting time
+				of the game is modified. You will be informed via email about this change.<br />
+				<br />				
+				<center><img width="95%" src="/images/how_to/select_start_time3.png"></center><br />
+			</li>
+		</ol>
+
+		<h3><a name="how_to7">How to access Freenode using Webchat?</a></h2><br />
+		<p>
+			Webchat is a quick and easy way to connect to the Freenode IRC network without havingn to
+			install any additional software. You even don't have to leave the FLEQ website for doing this.<br />
+			If you want to use a local client installed in your computer, chech the <a href="/faq">FAQ section</a>
+			to see different <a href="/faq#irc_faq3">alternatives</a> and <a href="/faq#irc_faq4">how config them</a>.<br />
+			<br />
+			The steps to access using the nickname and password obtained in the previous sections are as follows.
+		</p>
+		<ol>
+			<li>
+				In Webchat main screen, complete the fields: <i>Nickname</i>, <i>Username</i>
+				(the same that Nickname) and <i>Password</i> before clicking the connect button.<br />
+				<br />
+				<center><img src="/images/how_to/connect_to_freenode2.png"></center><br />
+			</li>
+			<li>
+				If the data is correct, you are connected to the Freenode IRC network and you've
+				authenticated your nickname and your password.
+			</li>
+		</ol>
+		<h3><a name="how_to8">How to play a game?</a></h2><br />
+		<p>
+			This section explains step by step how to access a scheduled game.<br />
+			Although Webchat has been used to illustrate these examples, the steps are not
+			very different if you use any other IRC client.<br />
+		</p>
+		<ol>
+			<li>
+				The first step to play the game for the round that you have to play is to access the
+				Freenode IRC network using your previously registered nickname. You have the details
+				of how to do it in <a href="#how_to1">the previous section</a>.
+				<div class="info"><u>IMPORTANT:</u> remember you have to be logged in with your nickname
+				<u>at least 5 minutes before</u> of the start time of the game.</div>
+			</li>
+			<li>
+				Once you've logged in, watch the content to the tab <i>Status</i>, because that is
+				where you will receive an invitation to join the channel where the game will be played.<br />
+				<br />
+				<center><img width="95%" src="/images/how_to/join_game1.png"></center><br />
+			</li>
+			<li>
+				You can accept this invitation and join the channel in two ways:<br />
+				<br />
+					<ul>
+						<li>
+							Clicking the name of the channel that you have been invited.<br />
+							<br />
+							<center><img width="95%" src="/images/how_to/join_game2.png"></center><br />
+						</li>
+						<li>
+							Running the command <code>/join #<i>&lt;channel&gt;</i></code>,
+							replacing <i>&lt;channel&gt;</i> by the name of the channel that you have been
+							invited to.<br />
+							<br />
+							<center><img width="95%" src="/images/how_to/join_game3.png"></center><br />
+						</li>
+					</ul>
+			</li>
+			<li>
+				Once in the channel where the game takes place, you'll have to wait until the starting time. When
+				the game starts, FLEQbot will begin to ask questions and you'll have to answer correctly
+				before your opponent to get a point.
+			</li>
+		</ol>
+		<center><img width="95%" src="/images/how_to/play.gif"></center><br />
+
+		<h3><a name="how_to9">How to request a review of a question in a game?</a></h2><br />
+		<p>
+			Below are the steps to follow for any player who wants to claim a review of a question asked in a game.
+		</p>
+		<ol>
+			<li>
+				After a game ends, you can access the details of it through the tournaments site (remember: <i>Tournaments / My Tournaments </i> in your menubar).<br />
+				<br />
+				<center><img src="/images/how_to/request_review1.png"></center><br />
+				<center><img src="/images/how_to/request_review2.png"></center><br />
+			</li>
+			<li>
+				In the details of the game you will see a link to request a review of a question.<br />
+				<center><img src="/images/how_to/request_review3.png"></center><br />
+			</li>
+			<li>
+				On the next screen you'll have to write the <i>Question Number</i>
+				(which appears at the beginning of each question during the IRC game) and the text
+				you want to attach to the review.<br />
+				<br />
+				<center><img src="/images/how_to/request_review4.png"></center><br />
+			</li>
+			<li>
+				After submitting it, your review request will be sent to the administrator of the tournament who will consider the revision. You will be
+				notified via e-mail when an answer has been given to your request. Then, following paragraph 1 of this section,
+				you will see the response provided.
+        </li>
+    </ol>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+	
+	<h2 class="title">{{ lang.title_lost_games }}</h2><hr />
+	<div class="entry">
+		{% if lostGames %}
+		<center>
+			<table id="ranking" class="tablesorter">
+				<thead> 
+				<tr>	
+					<th>{{ lang.table_date }}</th>
+					<th>{{ lang.table_tournament }}</th>
+					<th>{{ lang.table_round }}</th>					
+					<th>{{ lang.table_vs }}</th>
+				</tr> 
+				</thead>
+				<tfoot> 
+				<tr>	
+					<th>{{ lang.table_date }}</th>
+					<th>{{ lang.table_tournament }}</th>
+					<th>{{ lang.table_round }}</th>					
+					<th>{{ lang.table_vs }}</th>
+				</tr> 
+				</tfoot>				
+				<tbody> 			
+				{% for game in lostGames %}
+				<tr>
+					<td>{{ game.start_time.date }}</td>
+					<td><a href="/tournaments/{{ game.round.tournament.sid }}">{{ game.round.tournament.name }}</a></td>
+					<td>{{ game.round.round_number }}</td>
+					{% if game.player1 == user_me.user %}				
+					<td>{{ game.player2 }}
+					{% else %}
+					<td>{{ game.player1 }}
+					{% endif %}
+					<br />
+					({{ game.score_player1 }} - {{ game.score_player2 }})</td>
+				</tr>
+				{% endfor %}
+				</tbody>			
+			</table>
+			<div class="pager" id="pager">
+				<form>
+					<img src="http://tablesorter.com/addons/pager/icons/first.png" class="first"/>
+					<img src="http://tablesorter.com/addons/pager/icons/prev.png" class="prev"/>
+					<input type="text" class="pagedisplay"/>
+					<img src="http://tablesorter.com/addons/pager/icons/next.png" class="next"/>
+					<img src=".http://tablesorter.com/addons/pager/icons/last.png" class="last"/>
+					<select class="pagesize">
+						<option selected="selected" value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+						<option  value="40">40</option>
+					</select>
+				</form>
+			</div>
+		</center>
+		{% else %}
+			<div class="error">{{ lang.error_no_lost_games }}</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,205 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<h3 class="title">Tournaments</h2>
+	<b><br />
+	<a href="#tournament_faq1">How I can get privileges to create my own tournament?</a><br />
+	<br />
+	<a href="#tournament_faq2">What happens if I upload to the system more than once the same question?</a><br />
+	<br />
+	<a href="#tournament_faq3">After having chosen my preferred hours to play a game, the game settings don't change. Why?</a><br />
+	<br />
+	</b>
+
+
+	<h3 class="title">IRC</h2>
+	<b><br />
+	<a href="#irc_faq1">What is Freenode?</a><br />
+	<br />
+	<a href="#irc_faq2">What is Freenode Webchat?</a><br />
+	<br />
+	<a href="#irc_faq3">Is there a different way of accessing to IRC of Freenode Webchat?</a><br />
+	<br />
+	<a href="#irc_faq4">How do I configure my IRC client to automatically connect to Freenode?</a><br />
+	<br />
+	<a href="#irc_faq5">Is it possible to execute commands on-line via an IRC client?</a><br />
+	<br />
+	<a href="#irc_faq6">My answer was written sooner than the other player but he won the point. Why?</a><br />
+	<br />
+	</b>
+
+	<hr>
+
+	<div class="entry">
+		<a name="tournament_faq1" style="text-decoration:none;"><b>How I can get privileges to create my 
+		own tournament?</b></a><br /><br />
+			<p>
+				Administrator privileges are given to users upon request. If you want to obtain admin privileges to create 
+				your own quizbowl tournament, request them writing an <a href="mailto:fleq@libresoft.es">e-mail</a>
+				and you can organize your own tournaments free.
+            <br />
+			</p>
+            
+		<a name="tournament_faq2" style="text-decoration:none;"><b>What happens if I upload to the system 
+		more than once the same question?</b></a><br /><br />
+			<p>
+				FLEQ checks if a question with the same text is saved more than once. If this
+				happens, FLEQ discards this question and will continue uploading and saving the rest.
+            <br />
+			</p>
+		<a name="tournament_faq3" style="text-decoration:none;"><b>After having chosen my preferred hours to play a game, the game settings don't change. Why?</b></a><br /><br />
+			<p>
+				Date and time preferences by players to a game are only confirmed and changed if both players agree
+				at least in one of them.<br />
+				<br />
+				<i>For example</i>, if the default game start time is 10 PM and a player chooses 10 AM and 4 PM 
+				as his prefferences, the game start time won't be changed until his opponent selects
+				his prefferences times to 10 AM, 4 PM or both. If both players agree on two or more
+				preferences, FLEQ will select by default the earliest time and will modify the start of the game to 10 AM in our case.
+            <br />
+		</p>
+
+		<a name="irc_faq1" style="text-decoration:none;"><b>What is Freenode?</b></a><br /><br />
+			<p>
+				Freenode, formerly known as <i>Open Projects Network</i>, is an IRC network used to discuss 
+				peer-directed and open source projects. You can find channels in different languages of free
+				software projects. You can also find channels of other projects like government organizations
+				and non-government organizations.<br />
+				<br />
+				The IRC main server is <i>irc.freenode.net</i>; you can read more about Freenode at
+				<a href="http://freenode.net/">http://freenode.net</a>.
+				<br />
+			</p>
+		<a name="irc_faq2" style="text-decoration:none;"><b>What is Freenode Webchat?</b></a><br /><br />
+			<p>
+				<b>Webchat</b> or really <b>qwebirc software</b>, is a fast, easy to use and free software IRC client.<br />
+				Webchat provides a web interface allowing users to access the Freenode IRC network by
+				simply using a web browser.
+				<br />
+			</p>
+		<a name="irc_faq3" style="text-decoration:none;"><b>Is there a different way of accessing to IRC of Freenode Webchat?</b></a><br /><br />
+			<p>
+				Of course! Freenode Webchat is a quick way to access Freenode network from any browser 
+				without having to install or configure any software. The main way to access, mostly used
+				by users, is to access with an IRC client installed in your PC, in Freenode or other server.<br />
+				<br />
+				Below, we show a list of some IRC clients for different operating systems:
+					<ul>
+						<li><a href="http://xchat.org/">Xchat</a>, GNU/Linux systems or based in Unix.</li>
+						<li><a href="http://pchat-irc.com/downloads">Pchat</a> Windows.</li>
+						<li><a href="http://colloquy.info/">Colloquy</a>, Mac OS X.</li>
+					</ul>
+			</p>
+		<a name="irc_faq4" style="text-decoration:none;"><b>How do I configure my IRC client to automatically connect to Freenode?</b></a><br /><br />
+			<p>
+				This setting is focused on getting the IRC client to automatically connect Freenode network 
+				and authenticate with your nickname using the password obtained when you registered your account.<br />
+				<br />
+				Here are the steps for configuring the clients recommended in the preceding paragraph:
+				<a href="#xchat_conf">Xchat</a>, <a href="#pchat_conf">Pchat</a> and <a href="#colloquy_conf">Colloquy</a>.<br />
+                
+				<h3><a name="xchat_conf">Xchat</a></h4> 
+					<ul>
+						<li>
+							Through the Xchat menu bar access to <i>Xchat &gt; Network List...</i>
+						</li>
+						<li>
+							In the window that lists the available IRC networks fill the field <i>Nick name</i>
+							with your nick/username. Choose <i>FreeNode</i> in the network list and click <i>Edit</i>.<br />
+							<br />
+							<center><img src="/images/faq/xchat_network_list.png"></center><br />
+						</li>
+						<li>
+							In the configuration window of Freenode network below <i>Connecting</i> select checkbox
+							<i>Auto connect to this network at startup</i>. After that, fill the field <i>Nickserv
+							password</i> with the password obtained when you registered your account.<br />
+							<br />
+							<center><img src="/images/faq/xchat_edit_freenode.png"></center><br />
+						</li>
+						<li>
+							Configuration setting has finished. Now, when you open Xchat, it'll automatically connect
+							to Freenode network and it'll authenticate your nickname/username.
+						</li>
+					</ul>
+					
+				<h3><a name="pchat_conf">Pchat</a></h3>
+					<ul>
+						<li>
+							Through the Pchat menu bar access to <i>Pchat &gt; Network List...</i>
+						</li>
+						<li>
+							In the window that lists the available IRC networks fill the field <i>Nick name</i>
+							with your nick/username. Choose <i>FreeNode</i> in the network list and click <i>Edit</i>.<br />
+							<br />
+							<center><img src="/images/faq/pchat_network_list.png"></center><br />
+						</li>
+						<li>
+							In the configuration window of Freenode network below <i>Connecting</i> select checkbox
+							<i>Auto connect to this network at startup</i>. After thar, fill the field <i>Nickserv
+							password</i> with the password obtained when you registered your account.<br />
+							<br />
+							<center><img src="/images/faq/pchat_edit_freenode.png"></center><br />
+						</li>
+						<li>
+							Configuration setting has finished. Now, when you open Pchat, it'll automatically connect
+							to Freenode network and it'll authenticate your nickname/username.
+						</li>
+					</ul>
+				<h3><a name=colloquy_conf>Colloquy</a></h3>
+					<ul>
+						<li>
+							After running the program, in the main window of connections, click the button <i>New</i>.<br />
+							<br />
+							<center><img src="/images/faq/colloquy_connections_list.png"></center><br />
+						</li>
+						<li>
+							In the configuration window of new connection, click in <i>Details</i>, and fill the field
+							<i>Nickname</i> with your nickname/username. Write the Freenode direction (<i>irc.freenode.net</i>)
+							in the field <i>Chat Server</i>. Check the box <i>Remember this connection</i> and write your
+							password in the field <i>Server Password</i>.<br />
+							<br />
+							<center><img src="/images/faq/colloquy_new_connection.png"></center><br />
+						</li>
+						<li>
+							After that click in <i>Connect</i> button,  and Colloquy will be connected to Freenode 
+							network and ready to access to IRC channels.<br />
+							<br />
+							<center><img src="/images/faq/colloquy_connections_list2.png"></center><br />
+						</li>
+						<li>
+							Configuration setting has finished. Now, when you open Colloquy, it'll automatically connect
+							to Freenode network and it'll authenticate your nickname/username.
+						</li>
+					</ul>
+			</p>
+				
+		<a name="irc_faq5" style="text-decoration:none;"><b>Is it possible to execute commands on-line via an IRC client?</b></a><br /><br />
+			<p>
+				Following the IRC protocol, IRC clients may use certain commands.<br />
+				<br />
+				<a target="blank" href="http://proyectotrircvia.wordpress.com/2011/04/13/comandos-irc-utiles/">A list of IRC commands</a> is provided in the link with a small  
+				description and the way to use some of them.<br />
+			</p>
+        <a name="irc_faq6" style="text-decoration:none;"><b>My answer was written sooner than the other player but he won the point. Why?</b></a><br /><br />
+            <p>
+					Sometimes during the game you will see that even though you sent the correct answer to a question
+					before the other player, it is the other palyer who is awarded the point.<br />
+					<br />
+					Actually, that's not entirely true. What is happening is that your IRC client shows in your screen
+					the answer you just sent, although it has not arrived at that point at the FLEQbot server, which is the one in charge of evaluating if the answer is correct or not. It may well have happened that in the meantime the answer of you opponent had reached the server and won the point.<br/>
+					<br />
+					In the figure below you will see an example of how player 2, even if he/she thinks that his/her answer was 
+					first one (because it appears on the screen of his client first), does not get the point because
+					the response of player 1 had arrived before at the IRC server.<br />
+				</p>
+					<br />
+					<center><img src="/images/faq/race_conditions.png"></center><br />
+				<p>
+					When you are playing a game, try your connection is not too busy sending data by other programs
+					(downloading files, streaming videos ...). In this way, your answers will arrive as quickly as possible 
+					to the IRC server and avoid problems like the one shown in the figure.<br />
+				</p>
+	</div>
+</div>
+{% endblock %}

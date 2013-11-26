@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+
+	<h2 class="title">{{ lang.title_load_questions }}</h2>
+
+	<!-- Show errors from form -->
+	{% if form.errors %}<div class="error">{% endif %}
+	{% if form.non_field_errors %}{% for error in rform.non_field_errors %}{{ error }}{% endfor %}<br />{% endif %}
+	{% for field in form %}
+		{% if field.errors %}<u>{{ field.label_tag }}</u>: {% for error in field.errors %}{{ error }}{% endfor %}<br />{% endif %}
+	{% endfor %}
+	{% if form.errors %}</div>{% endif %}
+
+	<div class="entry">
+		<form id="loadQuestionsForm" action="." method="POST" enctype="multipart/form-data" >{% csrf_token %}
+			{% for field in form %}
+				{% if field.errors %}<div class="error">{% endif %}
+				{% if field.value and not field.errors %}<div class="success">{% endif %}
+					<p>{{ field.label_tag }}:<br />{{ field }}</p>
+				{% if field.errors or field.value %}</div>{% endif %}
+			{% endfor %}
+			<center>
+				<a href="#" onclick="document.getElementById('loadQuestionsForm').submit();" class="button add-big">{{ lang.button_load_questions }}</a>
+			</center>			
+		</form>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends "template.html" %}
+
+    {% block extra_js %}
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="/js/socket.io.js"></script>
+  <script>
+    $(function() {
+        var s = new io.connect('http://' + window.location.hostname, {
+            rememberTransport: false
+        });
+
+        s.on('connect', function() {
+	    data = '{"room": "{{ game.id }}", "user": "{{user_me.user}}", "action": "join"}';
+            s.send(data);
+        });
+
+        // Establish event handlers
+        s.on('disconnect', function() {
+            s.socket.reconnect();
+        });
+
+        s.on('message', function(data) {
+            $("#chat").append("<div class='message' style='margin: 2px 0px 0px 5px'>" + data + "</div>");
+                        var objDiv = document.getElementById("chat");
+                        objDiv.scrollTop = objDiv.scrollHeight;
+        });
+
+        //send the message when submit is clicked
+        $('#chatform').submit(function (evt) {
+            var msg = $('#chatform [type=text]').val();
+            $('#chatform [type=text]').val('');
+	    msg = "\"".concat(msg).concat("\"}");
+	    var data = '{"room": "{{ game.id }}", "user": "{{user_me.user}}", "action": "message", "message": ';
+	    data = data.concat(msg);
+            s.send(data);
+	    return false;
+        });
+    });
+  </script>
+
+  <script>window.room = {{ game.id }};</script>
+
+{% endblock %}
+
+
+
+
+{% block main %}
+	<div class="post">
+		<!-- Check status message -->
+		{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+
+		<h2 class="title">{% if tournament %}{{ tournament.name }}{% else %}{{ lang.error_title_game_no_exists }}{% endif %}</h2>
+	
+		<div class="entry">
+			<!-- Info Tournament -->
+			{% if game %}
+				{% if user_me.user == game.player1 or user_me.user == game.player2 or user_me.user == game.round.tournament.admin or user_me.user.username == "FLEQBOT" %}
+					<hr />
+					<center><b>{{ lang.round }} {{ round }}</b><br />
+					<h3>{{ player1.username }} {{ lang.vs }} {{ player2.username }} ({{ game.score_player1 }} - {{ game.score_player2 }})</h3>
+					<b>{{ startDate }}</b><br />
+					{% if game.log %}<b>({{ lang.finished }})</b>{% else %}<b>({{ lang.pending }})</b>{% endif %}</center>
+					<hr />
+				{% else %}
+					<div class="error">{{ lang.error_game_info }}</div>
+				{% endif %}
+			{% else %}
+				<div class="error">{{ lang.error_game_no_exists }}</div>
+			{% endif %}
+		</div>
+	</div>
+
+
+{% if user_me.user == game.player1 or user_me.user == game.player2 or user_me.user.username == "FLEQBOT" %}
+
+	<div class="post">
+                <div id="chat" style="width: 100%; height: 250px; overflow:auto; border: 1px solid black">
+			<div class="connecting" style="margin: 2px 0px 0px 5px">Connecting...</div>	
+		</div>
+
+               	<form id="chatform">
+               		<input name="message" type="text" />
+               		<input type="submit"/>
+               	</form>
+	</div>
+
+{% endif %}
+
+
+
+{% if game.log %}
+	{% if user_me.user == game.player1 or user_me.user == game.player2 or user_me.user == game.round.tournament.admin or user_me.user.is_superuser %}
+	<div class="post">
+		{% if user_me.user.is_superuser or user_me.user == game.round.tournament.admin %}
+		<h2 class="title">{{ lang.title_question_reviews }}</h2>
+		{% else %}
+		<h2 class="title">{{ lang.title_my_question_reviews }}</h2>
+		{% endif %}
+		{% if questionReviews %}	
+			<div class="entry">
+			{% for review in questionReviews %}
+				{% if review.resolution %}
+					<div class="success">({{ lang.closed }}) <a href="/question-review/{{ review.pk }}/">{{ review.question }}</a> - {{ review.player.username }}</div>
+				{% else %}
+					<div class="warning">({{ lang.pending }}) <a href="/question-review/{{ review.pk }}/">{{ review.question }}</a> - {{ review.player.username }}</div>
+				{% endif %}
+			{% endfor %}
+			</div>
+		{% else %}
+			<div class="error">{{ lang.error_question_reviews_no_exists }}</div>
+		{% endif %}
+		{% if user_me.user == game.player1 or user_me.user == game.player2 %}
+			{% if game.log %}
+				<center><a href="/question-review/{{ game.pk }}/add" class="button add-big">{{ lang.button_new_question_review }}</a></center>
+			{% endif %}
+		{% endif %}	
+	</div>
+	{% endif %}
+
+	{% if user_me.user == game.round.tournament.admin or user_me.user.is_superuser %}
+	<div class="post">
+		<h2 class="title">{{ lang.title_irc_log }}</h2>
+		<div class="entry">	
+			<pre>
+				<code>
+					{{ game.log|safe|linebreaksbr }}
+				</code>
+			</pre>
+		</div>
+	</div>
+	{% endif %}
+{% endif %}
+{% endblock %}

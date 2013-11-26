@@ -1,0 +1,83 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+
+	<h2 class="title">{{ lang.title_next_tournaments }}</h2>
+	<div class="entry">
+		{% for t in nextTournaments %}
+				<center>
+					<hr />
+					<h3><a href="/tournaments/{{ t.sid }}">{{ t.name }}</a></h3>				
+					<p class="categories">
+					{% for tc in tournamentCategories %}
+						{% if tc.tid == t.pk %}
+								<b>{{ lang.tournament_categories }}:</b> {% for c in tc.categories %} <a href="#">{{ c }}</a>{% endfor %}
+						{% endif %}
+					{% endfor %}					
+								<br /><b>{{ lang.tournament_start_date }}:</b> {{ t.start_date }}
+					</p>
+					<hr />
+				</center>
+		{% empty %}
+			<div class="error">{{ lang.error_no_next_tournaments }}</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="post">
+	<h2 class="title">{{ lang.title_active_tournaments }}</h2>
+	<div class="entry">
+		{% for t in activeTournaments %}
+				<center>
+					<hr />		
+				{% if t.players == user_me.user %} or t.admin == user_me.user %}
+					{{ t.name }}
+				{% else %}
+						<h3><a href="/tournaments/{{ t.sid }}">{{ t.name }}</a></h3>
+				{% endif %}
+				{% for tc in tournamentCategories %}
+					{% if tc.tid == t.pk %}
+						<p class="categories">
+							<b>{{ lang.tournament_categories }}:</b> {% for c in tc.categories %} <a href="#">{{ c }}</a>{% endfor %}
+					{% endif %}
+				{% endfor %}						
+							<br /><b>{{ lang.tournament_started_date }}:</b> {{ t.start_date }}
+						</p>
+					<hr />
+				</center>
+		{% empty %}
+			<div class="error">{{ lang.error_no_active_tournaments }}</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="post">
+	<h2 class="title">{{ lang.title_finished_tournaments }}</h2>
+	<div class="entry">
+		{% for t in finishedTournaments %}
+				<center>
+					<hr />		
+				{% if t.players == user_me.user %} or t.admin == user_me.user %}
+					{{ t.name }}
+				{% else %}
+						<h3><a href="/tournaments/{{ t.sid }}">{{ t.name }}</a></h3>
+				{% endif %}
+				{% for tc in tournamentCategories %}
+					{% if tc.tid == t.pk %}
+						<p class="categories">
+							<b>{{ lang.tournament_categories }}:</b> {% for c in tc.categories %} <a href="#">{{ c }}</a>{% endfor %}
+					{% endif %}
+				{% endfor %}
+							<br /><b>{{ lang.tournament_finished_date }}:</b> {{ t.finish_date }}
+						</p>
+					<hr />
+				</center>
+		{% empty %}
+			<div class="error">{{ lang.error_no_active_tournaments }}</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

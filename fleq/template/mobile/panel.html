@@ -1,0 +1,20 @@
+{% extends "mobile/base-mobile.html" %}
+
+{% block main %}
+
+		<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+			<li data-role="list-divider">Tournaments</li>
+			<li><a href="methods.html">My tournaments</a></li>
+			<li><a href="globalconfig.html">Active tournaments</a></li>
+			<li><a href="events.html">Next tournaments</a></li>
+			<li><a href="methods.html">Finished tournaments</a></li>
+		</ul>
+
+		<ul data-role="listview" data-inset="true">
+			<li data-role="list-divider">My games</li>
+			<li><a href="globalconfig.html">Next games</a></li>
+			<li><a href="events.html">Won games</a></li>
+			<li><a href="methods.html">Lost games</a></li>
+		</ul>
+
+{% endblock %}
