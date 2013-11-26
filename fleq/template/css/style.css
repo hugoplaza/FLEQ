@@ -1,0 +1,539 @@
+/* Fonts */
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('//www.mozilla.org/img/fonts/OpenSans-Regular-webfont.eot');
+    src: url('//www.mozilla.org/img/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('//www.mozilla.org/img/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('//www.mozilla.org/img/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('//www.mozilla.org/img/fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+html, body {
+	margin-left: 1px;
+	height: 101%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #D3F3BA;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+	color: #0F6059;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 2.4em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+p, ul, ol {
+	margin-top: 0;
+	line-height: 180%;
+}
+
+ul, ol {
+}
+
+a {
+	text-decoration: none;
+	color: #14786E;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+img.border {
+	border: 6px solid #EEE7DF;
+}
+
+img.alignleft {
+	float: left;
+	margin-right: 25px;
+}
+
+img.alignright {
+	float: right;
+}
+
+img.aligncenter {
+	margin: 0px auto;
+}
+
+#wrapper {
+	margin: 0 auto;
+	padding: 0;
+}
+
+/* Header */
+
+#header-wrapper {
+	height: 125px;
+}
+
+#header {
+	width: 960px;
+	height: 125px;
+	margin: 0 auto;
+	background: #36AA5B;
+}
+
+/* Logo */
+
+#logo {
+	width: 980px;
+	margin: 0px auto;
+	padding: 5px 0px 0px 0px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+#logo h1, #logo p {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+#logo h1 {
+	margin: 0px;
+	letter-spacing: -1px;
+	text-align: center;
+	font-size: 54px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#logo h1 a {
+	color: #FFFFFF;
+}
+
+#logo p {
+	margin-top: -10px;
+	text-align: center;
+	font-family: 'Arvo', serif;
+	font-size: 20px;
+}
+
+#logo a {
+	border: none;
+	background: none;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+/* Search */
+
+#search {
+	float: right;
+	width: 280px;
+	height: 100px;
+	padding: 0;
+}
+
+#search form {
+	height: 41px;
+	margin: 0;
+	padding: 60px 0 0 30px;
+}
+
+#search fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+#search-text {
+	width: 195px;
+	padding: 6px 10px;
+	border: none;
+	background: #FFFFFF;
+	text-transform: lowercase;
+	font: normal 11px Arial, Helvetica, sans-serif;
+	color: #7F7F81;
+}
+
+#search-submit {
+	display: none;
+}
+
+/* Menu */
+
+#menu-wrapper {
+	height: 60px;
+}
+
+#menu {
+	width: 940px;
+	height: 58px;
+	margin: 0px auto;
+	padding: 0px 20px 0px 0px;
+	background: #63725E;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0px 0px 0px 0px;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	float: left;
+}
+
+#menu a {
+	display: block;
+	height: 56px;
+	margin: 0px;
+	padding: 0px 25px 0px 30px;
+	line-height: 56px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #B5B5B5;
+	border: none;
+	
+}
+
+#menu .current_page_item a {
+	color: #FFFFFF;
+}
+
+#menu a:hover {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#nav { 
+	list-style:none; 
+}
+
+#nav li {
+	float:left; 
+	background-repeat:no-repeat; 
+	background-position:right;
+}
+
+#nav li a {
+	display:block; 
+	text-decoration:none;
+}
+
+#nav li a:hover {
+	color:#FFFFFF;
+}
+
+#nav ul.submenu { 
+	padding:3px; 
+	position:absolute; 
+	list-style:none; 
+	background-color:#00312d;
+}
+
+#nav ul.submenu li {
+	float:none; 
+	background-image:none; 
+}
+
+/* Page */
+
+#page {
+	background: url(/images/img01.jpg) repeat-y center top;
+}
+
+#page-bgtop {
+}
+
+#page-bgbtm {
+	overflow: hidden;
+	width: 960px;
+	margin: 0px auto;
+}
+
+#page-content {
+	overflow: hidden;
+	width: 960px;
+	margin: 0px auto;
+}
+
+/* Content */
+
+#content {
+	float: left;
+	width: 645px;
+	padding: 0px 0px 0px 0px;
+}
+
+#content pre {
+font-size: 0.85em;
+padding: 5px;
+margin-left: 15px;
+border: 1px solid #CCC;
+width: 100%;
+height: 500px;
+color: #666;
+overflow: scroll;
+text-align: center,
+}
+
+.post {
+	clear: both;
+	padding: 30px 40px;
+	background: url(/images/img03.jpg) no-repeat left top;
+}
+
+.post .title {
+	padding-top: 10px;
+	letter-spacing: -2px;
+}
+
+.post .title a {
+	color: #0F6059;
+	border: none;
+}
+
+.post .meta {
+	padding-bottom: 10px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: italic;
+}
+
+.post .categories {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: italic;
+}
+
+.post .help_text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: italic;
+}
+
+.post .meta a {
+}
+
+.post .entry {
+	text-align: justify;
+	margin-bottom: 25px;
+	padding: 10px 0px 0px 0px;
+}
+
+.links {
+	display: block;
+	width: 96px;
+	padding: 2px 0px 2px 0px;
+	background: #A53602;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 10px;
+	color: #FFFFFF;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 315px;
+	padding: 0px 0px 0px 0px;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	margin: 0;
+	padding: 15px 30px 15px 30px;
+	background: url(/images/img04.jpg) no-repeat left top;
+}
+
+#sidebar li ul {
+	padding-bottom: 30px;
+	background: none;
+}
+
+#sidebar li li {
+	margin: 0px;
+	padding: 0px;
+	line-height: 35px;
+	background: none;
+}
+
+#sidebar li li span {
+	display: block;
+	margin-top: -20px;
+	padding: 0;
+	font-size: 11px;
+	font-style: italic;
+}
+
+#sidebar li li a {
+	color: #181B20;
+}
+
+#sidebar h2 {
+	height: 38px;
+	letter-spacing: -1px;
+	font-size: 24px;
+	color: #0F6059;
+}
+
+#sidebar h1 {
+	height: 28px;
+	letter-spacing: -1px;
+	font-size: 16px;
+	color: #0F6059;
+}
+
+#sidebar p {
+	margin: 0 0px;
+	padding: 0px 10px 10px 10px;
+	text-align: justify;
+}
+
+#sidebar a {
+	font-weight: bold;
+}
+
+#sidebar .stats {
+    float: left;
+    padding-top: 5px;
+    clear: both;
+}
+
+/* Calendar */
+
+#calendar {
+}
+
+#calendar_wrap {
+	padding: 20px;
+}
+
+#calendar table {
+	width: 100%;
+}
+
+#calendar tbody td {
+	text-align: center;
+}
+
+#calendar #next {
+	text-align: right;
+}
+
+/* Footer */
+
+#footer {
+	width: 960px;
+	height: 55px;
+	margin: 0px auto 40px auto;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#footer p {
+	margin: 0;
+	padding-top: 18px;
+	line-height: normal;
+	text-align: center;
+	color: #576475;
+}
+
+#footer a {
+	color: #576475;
+}
+
+/* Message Boxes */
+
+.info, .success, .warning, .error {
+	border: 1px solid;
+	margin: 15px 15px;
+	padding:15px 20px 15px 55px;
+	font: bold 12px verdana;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	text-shadow: 2px 2px 2px #ccc;
+}
+
+.info_sidebar, .success_sidebar, .warning_sidebar, .error_sidebar {
+	border: 1px solid;
+	margin: 5px 2px;
+	padding:10px 15px 10px 50px;
+	font: bold 12px verdana;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	text-shadow: 2px 2px 2px #ccc;
+}
+
+.info, .info_sidebar {
+	color: #00529B;
+	background: #BDE5F8 url('/images/message-boxes/icon-info.png') no-repeat 10px center;
+}
+.success, .success_sidebar {
+	color: #4F8A10;
+	background: #DFF2BF url('/images/message-boxes/icon-tick.png') no-repeat 10px center;
+}
+.warning, .warning_sidebar {
+	color: #9F6000;
+	background: #FEEFB3 url('/images/message-boxes/icon-warning.png') no-repeat 10px center;
+}
+.error, .error_sidebar {
+	color: #D8000C;
+	background: #FFBABA url('/images/message-boxes/icon-cross.png') no-repeat 10px center;
+}
+
+/* form CSS */
+#id_optional_info, #id_message {
+	width: 100%;
+	height: 200px;
+}
+
+#id_game_message, #id_name, #id_subject {
+	width: 100%;
+}
+
+
+#chatwindow {
+	text-align: left;
+	height: 300px;
+	width: 100%;
+	border: 1px solid;
+	padding: 5px;
+	overflow: auto;
+	background-color: white;
+}

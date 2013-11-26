@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Free Libresoft Educational Quizbowl</title>
+	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+	<link href="/css/custom-style4.css" rel="stylesheet" type="text/css" media="screen" />
+	<!--<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.dropotron-1.0.js"></script>-->
+
+	<link rel="stylesheet" href="/css/my-jquery-mobile5.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+	<link href="/css/jquery-tablesorter.css" rel="stylesheet" type="text/css" media="screen" />
+
+	<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+	<link href="/css/google-buttons.css" rel="stylesheet" type="text/css" media="screen">
+	
+
+	{% block js %}
+
+	{% endblock %}
+
+</head>
+
+
+<body>
+
+<div id="wrapper">
+
+	{% block header %}
+
+		<div id="header-wrapper-mini">
+			<div id="header">
+				<table width="950">
+					<tr>
+						<td width="490">
+							<div>
+								<h1><a id="logo-mini" href="/">fleq</a></h1>
+							</div>
+						</td>
+						<td>
+						<table cellspacing="0" align="right">
+							<tbody>
+								<tr>
+									<td>
+										{% if user_me.is_authenticated %}
+											<a data-role="button" href="/logout" data-mini="true"  
+													data-theme="a" data-icon="delete">Logout</a>
+										{% endif %}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>			
+				</table>
+			</div>
+		</div>
+		<!-- end #header -->
+
+		<div id="splash"></div>
+
+	{% endblock %}
+
+
+
+	<div id="page">
+		<div id="content">
+
+			{% block content %}
+
+			{% endblock %}
+
+		</div>
+		<!-- end #content -->
+
+
+		<div id="sidebar-bg">
+
+			<div id="sidebar">
+
+				<ul>
+
+					<li>
+						<h2>Analytics</h2>
+						<p> Results of this previous tournament, that category is the most successful and imagine your next tournament!</p>
+						<ul>
+							<li><a href="/analytics/questions/{{ id }}" rel="external">Questions More Successful</a></li>
+							<li><a href="/analytics/questionsless/{{ id }}" rel="external">Less Successful Questions</a></li>
+							<li><a href="/analytics/categories/{{ id }}" rel="external">Categories More Successful</a></li>
+							<li><a href="/analytics/absences/{{ id }}" rel="external">Absences of Players</a></li>
+							<li><a href="/analytics/general/{{ id }}" rel="external">General Data of Games</a></li>
+							<li><a href="/analytics/successtime/{{ id }}" rel="external">Average Answer Time in Each Round</a></li>
+							
+						</ul>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+		<!-- end #sidebar -->
+
+
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+
+</div>
+
+
+<!--<div id="footer">
+	<p>2012. FLEQ</p>
+</div>
+end #footer -->
+
+
+</body>
+</html>

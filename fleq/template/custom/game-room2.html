@@ -1,0 +1,158 @@
+{% extends "custom/base-mini.html" %}
+
+
+
+{% block js %}
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script src="/js/socket.io.js"></script>
+
+		<script>
+		$(function() {
+			var s = new io.connect('http://localhost:9000', {
+				rememberTransport: false
+			});
+
+			s.on('connect', function() {
+				data = '{"code": "1", "room": "{{ game.id }}", "user": "{{ user_me.username }}"}';
+				s.send(data);
+			});
+
+			// Establish event handlers
+			s.on('disconnect', function() {
+				s.socket.reconnect();
+			});
+
+			s.on('message', function(data) {
+				var data = jQuery.parseJSON(data);
+
+				if (data.code == 1){
+					$("#text").attr("placeholder", "Introduce a message");
+				}else if (data.code == 2){
+					$("#chat").append("<div class='message' style='margin: 1px 3px 1px 3px;'>" + data.user + ": " + data.message + "</div>");
+					$("#chat").scrollTop($("#chat")[0].scrollHeight);
+				}
+			});
+
+			//send the message when submit is clicked
+			$('#chatform').submit(function (evt) {
+				var msg = $('#chatform [type=text]').val();
+				$('#chatform [type=text]').val('');
+				msg = "\"".concat(msg).concat("\"}");
+				var data = '{"code": "2", "room": "{{ game.id }}", "user": "{{ user_me.username }}", "message": ';
+				data = data.concat(msg);
+				s.send(data);
+				return false;
+			});
+		});
+		</script>
+
+		<script>window.room = {{ game.id }};</script>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+		<div class="contentbg">
+			<div class="post">
+				{% if not game.is_over %}
+
+						<h2 class="title">{{ player1 }} vs {{ player2 }}</h2>
+
+						<!--<center>
+							<table id="scores" class="tablesorter" border="1">
+								<tbody> 			
+								<tr>
+										<td><img src="/images/offline.png"/></td>
+										<td>{{ player1 }}</td>
+										<td><img src="/images/online.png"/></td>
+										<td>{{ player2 }}</td>				
+								</tr>
+
+								</tbody>
+							</table>
+						</center>
+						<br>-->
+
+
+						<div id="chat" style="background: #f8f9fa; overflow-y: scroll; height: 250px; max-height: 250px;" 
+																class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+						<!--<div style='margin: 1px 3px 1px 3px;'>Connecting...</div>-->
+						</div>
+							
+						<div  data-theme="c" data-positioned="fixed">
+						  <form id="chatform">
+								<p><input type="text" name="message" maxlength="150" id="text"
+								class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Please wait, connecting..."></p>
+						  </form>
+						</div>
+
+
+				{% else %}
+
+						<h3 class="title">{{ player1 }}: {{ game.score_player1}} - {{game.score_player2}} :{{ player2 }}</h3><br>
+
+						<center>
+
+						<table id="scores" class="tablesorter">
+							<thead> 
+							<tr> 
+								<th class="tooltip" title="Position">TIME</th>		
+								<th class="tooltip" title="Username">USER</th>
+								<th class="tooltip" title="Games played">MESSAGE</th>						
+							</tr>
+							</thead>
+
+							<tbody> 			
+								{% for line in dico %}
+									<tr>
+										<td style="background-color: #EEEEEE;">{{ line.timestamp }}</td>
+										<td style="background-color: #EEEEEE;">{{ line.user }}</td>
+										<td style="background-color: #EEEEEE;">{{ line.message }}</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+
+				{% endif %}
+
+			</div>
+			<div style="clear: both;">&nbsp;</div>
+		</div>
+
+
+
+{% endblock %}
+
+
+
+{% block sidebar %}
+
+	<ul>
+		<li>
+			<h2>Games</h2>
+			<ul>
+				<li><a href="/next-games">My next games</a></li>
+				<li><a href="/won-games">Won games</a></li>
+				<li><a href="/lost-games">Lost games</a></li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>Tournaments</h2>
+			<ul>
+				<li><a href="/my-tournaments">My tournaments</a></li>
+				<li><a href="/active-tournaments">Active tournaments</a></li>
+				<li><a href="/next-tournaments">Next tournaments</a></li>
+				<li><a href="/finished-tournaments">Finished tournaments</a></li>
+			</ul>
+		</li>
+
+	</ul>
+
+{% endblock %}

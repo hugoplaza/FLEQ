@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+	
+	<h2 class="title">{{ lang.title_new_question_review }}</h2>
+
+	<!-- Show errors from form -->
+	{% if form.errors %}<div class="error">{% endif %}
+	{% if form.non_field_errors %}{% for error in rform.non_field_errors %}{{ error }}{% endfor %}<br />{% endif %}
+	{% for field in form %}
+		{% if field.errors %}<u>{{ field.label_tag }}</u>: {% for error in field.errors %}{{ error }}{% endfor %}<br />{% endif %}
+	{% endfor %}
+	{% if form.errors %}</div>{% endif %}
+
+	<div class="entry">
+		<form id="newForm" action="." method="POST" accept-charset="utf-8">
+			{% for field in form %}
+				{% if field.errors %}<div class="error">{% endif %}
+					<p>{{ field.label_tag }}:<br />{{ field }}</p>
+					<p class="help_text">{{ field.help_text }}</p>
+				{% if field.errors %}</div>{% endif %}
+			{% endfor %}
+			<center>
+				<a href="#" onclick="document.getElementById('newForm').submit();" class="button add-big">{{ lang.button_new_question_review }}</a>
+			</center>
+		</form>
+	</div>
+</div>
+{% endblock %}

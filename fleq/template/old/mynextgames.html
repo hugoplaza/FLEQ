@@ -1,0 +1,103 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+
+	<h2 class="title">{{ lang.title_my_next_games }}</h2>
+	<div class="entry">
+		{% if myNextGames %}
+			<p>
+			{% for g in myNextGames %}
+				<!-- Only shows futures games -->
+					<hr />
+					<center><a href="/games/{{ g.pk }}"><h2>{{ g.player1.username }} vs {{ g.player2.username }}</h2></a>
+					<b>{{ lang.round }} {{ g.round.round_number }}</b><br />
+					<a href="/tournaments/{{ g.round.tournament.sid }}"><h3>{{ g.round.tournament.name }}</h3></a></center>
+					{% if not g.start_time_committed %}
+					<center>
+						<form id="timeForm" action="/games/{{ g.pk }}/select-time" method="post" accept-charset="utf-8">{% csrf_token %}
+							<select name="date" id="date">
+							{% for date in myUncommittedGamesDate %}
+								{% if date.gid == g.pk %}
+									<option value="{{ date.date.year }}/{{ date.date.month }}/{{ date.date.day }}">{{ date.date }}</option>
+								{% endif %}
+							{% endfor %}
+							</select><br />
+							<select multiple="multiple" name="time" id="time">
+								<option value="8">08:00h</option>							
+								<option value="9">09:00h</option>
+								<option value="10">10:00h</option>
+								<option value="11">11:00h</option>
+								<option value="12">12:00h</option>
+								<option value="13">13:00h</option>
+								<option value="14">14:00h</option>
+								<option value="15">15:00h</option>																							
+								<option value="16">16:00h</option>
+								<option value="17">17:00h</option>
+								<option value="18">18:00h</option>
+								<option value="19">19:00h</option>
+								<option value="20">20:00h</option>																							
+								<option value="21">21:00h</option>								
+								<option value="22">22:00h</option>
+								<option value="23">23:00h</option>								
+							</select>
+							<p class="help_text">({{ lang.dates_times_play }})</p>
+							<input type="hidden" name="next" value="{{ NEXT }}" />
+							<center>
+								<a href="#" onclick="document.getElementById('timeForm').submit();" class="button add-big">{{ lang.button_select_datetime }}</a>
+							</center>
+						</form>
+					{% else %}
+						<div class="info"><u>{{ lang.datetime_selected_players }}</u>: {{ g.start_time }}</div>
+					{% endif %}
+					</center>
+					{% if mySelectedGamesDate or opponentSelectedGamesDate %}
+					<div class="info">
+					<center>
+						<table>
+							<tr>
+								<td valign="top">
+									<center>
+									<h3><u>Your selections</u></h3>
+									{% if mySelectedGamesDate %}
+										<br /><form id="timeSelectedForm" action="/games/{{ g.pk }}/delete-time" method="post" accept-charset="utf-8">{% csrf_token %}
+										{% for date in mySelectedGamesDate %}
+											{% if date.gid == g.pk %}
+												<input type="checkbox" value="{{ date.date.pk }}" name="time" />{{ date.date.date_time }}</br>
+											{% endif %}
+										{% endfor %}
+												<br />
+												<center>
+													<a href="#" onclick="document.getElementById('timeSelectedForm').submit();" class="button delete">{{ lang.button_delete_datetimes }}</a>
+												</center>
+										</form>
+									{% else %}
+										<div class="error">No selections.</div>
+									{% endif %}
+									</center>
+								</td>
+								<td>  </td>
+								<td valign="top">
+									<h3><u>Your opponent</u></h3><br />
+									{% for date in opponentSelectedGamesDate %}
+										{% if date.gid == g.pk %}
+											{{ date.date }}</br>
+										{% endif %}
+									{% endfor %}
+								</td>							
+							</tr>
+						</table>
+					</center>
+					</div>
+					{% endif %}					
+					<hr />
+				{% endfor %}
+			</p>
+		{% else %}
+			<div class="error">{{ lang.error_no_next_games }}</div>
+		{% endif %}
+	</div>	
+</div>
+{% endblock %}

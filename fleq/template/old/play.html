@@ -1,0 +1,16 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<h2 class="title">{{ lang.title_play }}</h2>
+	<div class="entry">
+		<p>
+		{% if user_me.user.is_active %}
+			<iframe src="http://webchat.freenode.net?nick={{ user_me.user.username }}&channels=fleq&uio=MTE9MjI2dd" width="100%" height="500px"></iframe>
+		{% else %}
+			<iframe src="http://webchat.freenode.net?channels=fleq&uio=MTE9MjI2dd" width="100%" height="500px"></iframe>
+		{% endif %}
+		</p>
+	</div>
+</div>
+{% endblock %}

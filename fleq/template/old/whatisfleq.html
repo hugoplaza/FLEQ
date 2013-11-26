@@ -1,0 +1,116 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<h2 class="title">What is FLEQ?</h2>
+	<div class="entry">
+		<p>
+			FLEQ is a system that allows to organizes quizbowl tournaments easily. Its name is an acronym of <i>Free LibreSoft Educational Quizbowl</i>:
+		</p>
+
+			<ul>
+				<li>
+					<b>Free</b>: we use libre software to develop it. You can also download it, install it yourself, modify it and redistribute your modifications.
+				</li>
+				<li>
+					<b>LibreSoft</b>: this project is developed by the <a href="http://libresoft.es">LibreSoft Group</a>
+					at the <a href="http://www.urjc.es">Rey Juan Carlos University</a> in Madrid, Spain.
+				</li>
+				<li>
+					<b>Educational</b>: This game has been developed oriented to educational use.
+				</li>
+				<li>
+					<b>Quizbowl</b>: The type of game we play: it is a championship of quizzes.
+				</li>
+			</ul>
+		<p>
+			The main objective of FLEQ is offer a system that allows to almost 
+			autonomously manage tournaments.
+			This autonomy will offer administrators the possibility to organize quizbowl
+			tournaments with hundreds of players and hundreds of different questions
+			in a few minutes, not having to care about infrastructure and other issues.
+		</p>
+
+	<h2 class="title">The FLEQ's Trinity</h2>
+		<p>
+			FLEQ system is divided in three diferent parts. All of them work in harmony 
+			to offer the services that administrators need to organize and that players require to play
+			a tournament.
+		</p>
+		<ol>
+			<li>
+				<b>Website</b>: if you're reading this words, you're in it! This part offers the interface to admin and play quizbowl tournaments and all the info about the project to unregistered users.<br>
+				<ul>
+					<li>
+						Documentation about the operation of the system.
+					</li>
+					<li>
+						Step by step guides to know how to use all parts of FLEQ.
+					</li>
+					<li>
+						A webclient to play immediatly!
+					</li>
+					<li>
+						Latest news about FLEQ project.
+					</li>
+					<li>
+						FAQ with answers to the frequently asked questions.
+					</li>
+				</ul>
+			</li><br />
+			<li>
+				<b>Tournament manager:</b> offers different services through its web interface such as:<br>
+				<ul>
+					<li>
+						Registration.
+					</li>
+					<li>
+						Question management.
+					</li>
+					<li>
+						Creation new quizbowl tournaments.
+					</li>
+					<li>
+						Participation in quizbowl tournaments.
+					</li>
+					<li>
+						Detailled information about tournaments and games.
+					</li>
+					<li>
+						Selection of the hour and date of the match with your opponents.
+					</li>
+					<li>
+						Revision of question by players and organizers.
+					</li>
+				</ul>
+			</li><br />
+			<li>
+				<b>FLEQbot</b>: an IRC bot that, inside an IRC channel can execute automatic actions such as:<br>
+				<ul>
+					<li>
+						Setting permissions on the users of the canal.
+					</li>
+					<li>
+						Inviting players of a game to play.
+					</li>
+					<li>
+						Posting the questions to be answered by participants.
+					</li>
+					<li>
+						Providing clues about the correct answer to a question.
+					</li>
+					<li>
+						Checking if the answers of the players are correct.
+					</li>
+					<li>
+						Awarding points to the player who correctly answers first a question.
+					</li>
+					<li>
+						Declaring the winner of the match.
+					</li>
+				</ul>
+			</li><br />
+		</ol>
+	</div>
+</div>
+{% endblock %}

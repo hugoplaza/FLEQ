@@ -1,0 +1,76 @@
+{% extends "mobile/base-mobile.html" %}
+
+
+{% block extrajs %}
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="/js/socket.io.js"></script>
+  <script>
+    $(function() {
+        var s = new io.connect('http://' + window.location.hostname, {
+            rememberTransport: false
+        });
+
+        s.on('connect', function() {
+	    data = '{"room": "{{ game.id }}", "user": "{{user_me.user}}", "action": "join"}';
+            s.send(data);
+        });
+
+        // Establish event handlers
+        s.on('disconnect', function() {
+            s.socket.reconnect();
+        });
+
+        s.on('message', function(data) {
+            $("#chat").append("<li class='message'>" + data + "</li>");
+                        var objDiv = document.getElementById("chat");
+                        objDiv.scrollTop = objDiv.scrollHeight;
+        });
+
+        //send the message when submit is clicked
+        $('#chatform').submit(function (evt) {
+            var msg = $('#chatform [type=text]').val();
+            $('#chatform [type=text]').val('');
+	    msg = "\"".concat(msg).concat("\"}");
+	    var data = '{"room": "{{ game.id }}", "user": "{{user_me.user}}", "action": "message", "message": ';
+	    data = data.concat(msg);
+            s.send(data);
+	    return false;
+        });
+    });
+  </script>
+
+  <script>window.room = {{ game.id }};</script>
+
+{% endblock %}
+
+
+
+{% block header %}
+
+		<h1 style="font-family: 'Lobster'; letter-spacing: 3px;">fleq</h1>
+		<a href="/mobile" data-role="button" data-icon="back" data-iconpos="left" data-mini="true" data-inline="true">Volver</a>
+
+{% endblock %}
+
+
+{% block main %}
+
+<div data-role="fieldcontain">
+	<div class="post">
+		<ul id="chat" data-role="listview" data-split-theme="d">
+			<li>
+				<h5>Connecting...</h5>
+			</li>
+		</ul>
+
+		<br>
+	
+        	<form id="chatform">
+        		<input name="message" type="text" data-mini="true" data-inline="true"/>
+		</form>
+	</div>
+</div>
+
+
+{% endblock %}

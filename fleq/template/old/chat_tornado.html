@@ -1,0 +1,54 @@
+{% extends "template.html" %}
+
+    {% block extra_js %}
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="/js/socket.io.js"></script>
+  <script>
+    $(function() {
+        var s = new io.connect('http://' + window.location.hostname, {
+            rememberTransport: false
+        });
+
+        s.on('connect', function() {
+            s.send('New participant joined');
+        });
+
+        // Establish event handlers
+        s.on('disconnect', function() {
+            s.socket.reconnect();
+        });
+
+        s.on('message', function(data) {
+            $("#chat").append("<div class='message'>" + data + "</div>");
+			var objDiv = document.getElementById("chat");
+			objDiv.scrollTop = objDiv.scrollHeight;
+        });
+
+        //send the message when submit is clicked
+        $('#chatform').submit(function (evt) {
+            var line = $('#chatform [type=text]').val();
+            $('#chatform [type=text]').val('');
+            s.send(line);
+            return false;
+        });
+    });
+  </script>
+
+    {% endblock %}
+
+
+{% block main %}
+<div class="post">
+	<center>
+		<h2>Game Room</h2><br />
+
+		<div id="chat" style="width: 350px; height: 250px; overflow:auto; border: 1px solid black"></div>
+
+		<form id="chatform">
+		<input name="message" type="text" />
+		<input type="submit"/>
+		</form>
+	</center>
+</div>
+{% endblock %}

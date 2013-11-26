@@ -1,0 +1,59 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+
+	<h2 class="title">{{ lang.title_register }}</h2>
+
+	<!-- Show errors from form -->
+	{% if registerForm.errors %}<div class="error">{% endif %}
+	{% if registerForm.non_field_errors %}{% for error in registerForm.non_field_errors %}{{ error }}{% endfor %}<br />{% endif %}
+	{% for field in registerForm %}
+		{% if field.errors %}<u>{{ field.label_tag }}</u>: {% for error in field.errors %}{{ error }}{% endfor %}<br />{% endif %}
+	{% endfor %}
+	{% if registerForm.errors %}</div>{% endif %}
+
+	<div class="entry">
+		<p>
+			<form id="registerForm" action="/register/" method="POST" enctype="multipart/form-data" >{% csrf_token %}
+				{% for field in registerForm %}
+					{% if field.errors %}<div class="error">{% endif %}
+					{% if field.value and not field.errors %}<div class="success">{% endif %}
+						<p>{{ field.label_tag }}:<br />{{ field }}</p>
+					{% if field.errors or field.value %}</div>{% endif %}
+				{% endfor %}
+				<center>
+					<a href="#" onclick="document.getElementById('registerForm').submit();" class="button save-big">{{ lang.button_register }}</a>
+				</center>
+			</form>
+		</p>
+	</div>
+</div>	
+{% endblock %}
+
+{% block sidebar %}
+<ul>
+	<li>						
+		<h2>{{ lang.title_login }}</h2>
+
+		<!-- Show errors from form -->
+		{% if loginForm.errors %}<div class="error_sidebar">{% endif %}
+		{% if loginForm.non_field_errors %}{% for error in loginForm.non_field_errors %}{{ error }}{% endfor %}<br />{% endif %}
+		{% for field in loginForm %}
+			{% if field.errors %}<u>{{ field.label_tag }}</u>: {% for error in field.errors %}{{ error }}{% endfor %}<br />{% endif %}
+		{% endfor %}
+		{% if loginForm.errors %}</div>{% endif %}		
+		<form id="loginForm" action="/login/" method="POST" enctype="multipart/form-data" >{% csrf_token %}
+			{% for field in loginForm %}
+					<p>{{ field.label_tag }}: {{ field }}</p>
+			{% endfor %}
+			<center>
+				<a href="#" onclick="document.getElementById('loginForm').submit();" class="button_login">{{ lang.button_login }}</a>
+				<a href="/recover-account" class="button_password">{{ lang.button_recover_account }}</a>
+			</center>
+		</form>
+	</li>
+</ul>
+{% endblock %}

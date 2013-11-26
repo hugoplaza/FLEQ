@@ -1,0 +1,72 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+	
+	<h2 class="title">Ranking</h2><hr />
+	<div class="entry">
+		{% if ranking %}
+		<center>
+			<table id="ranking" class="tablesorter">
+				<thead> 
+				<tr>	
+					<th>USER</th>
+					<th>GP</th>						
+					<th>GW</th>
+					<th>GL</th>
+					<th>GW/GL</th>
+				</tr> 
+				</thead>
+				<tfoot> 
+				<tr>	
+					<th>USER</th>
+					<th>GP</th>						
+					<th>GW</th>
+					<th>GL</th>
+					<th>GW/GL</th>
+				</tr> 
+				</tfoot>				
+				<tbody> 			
+				{% for player in ranking %}
+				<tr>
+					{% if forloop.counter == 1 %}
+						<td class="first">{{ player.user.user.username }}</td>
+						<td class="first">{{ player.total_games }}</td>
+						<td class="first">{{ player.winner_games }}</td>
+						<td class="first">{{ player.loser_games }}</td>
+						<td class="first">{{ player.winner_total_ratio|floatformat }}</td>
+					{% else %}
+						<td>{{ player.user.user.username }}</td>
+						<td>{{ player.total_games }}</td>
+						<td>{{ player.winner_games }}</td>
+						<td>{{ player.loser_games }}</td>
+						<td>{{ player.winner_total_ratio|floatformat }}</td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+				</tbody>			
+			</table>
+			<div class="pager" id="pager">
+				<form>
+					<img src="http://tablesorter.com/addons/pager/icons/first.png" class="first"/>
+					<img src="http://tablesorter.com/addons/pager/icons/prev.png" class="prev"/>
+					<input type="text" class="pagedisplay"/>
+					<img src="http://tablesorter.com/addons/pager/icons/next.png" class="next"/>
+					<img src=".http://tablesorter.com/addons/pager/icons/last.png" class="last"/>
+					<select class="pagesize">
+						<option selected="selected" value="5">5</option>
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option  value="40">40</option>
+					</select>
+				</form>
+			</div>
+		</center>
+		{% else %}
+			<div class="error">{{ lang.error_no_players }}</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

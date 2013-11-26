@@ -1,0 +1,157 @@
+{% extends "template.html" %}
+
+{% block main %}
+<div class="post">
+	<!-- Check status message -->
+	{% if box %}<div class="{{ box.status }}">{{ box.message|safe|linebreaksbr }}</div>{% endif %}
+	
+	{% if not userJoined and startDate > dateNow.date and user_me.user.is_authenticated %}
+	<p align="right">
+		<a href="/tournaments/{{ tournament.sid }}/join" class="button save-big">{{ lang.button_join }}</a>
+	</p>
+	{% endif %}
+	
+	{% if userJoined and startDate > dateNow.date and user_me.user != tournament.admin %}
+		<div class="warning">
+			<u>{{ lang.remember }}</u> {{ lang.joined_tournament }}
+		</div>
+	{% endif %}
+	
+	<h2 class="title">{{ tournament.name }}</h2><hr />
+	<div class="entry">
+		{% if user_me.user == tournament.admin %}
+		<div class="warning">{{ lang.warning_you_tournament_admin }}</div>
+		{% endif %}
+
+		<!-- Info Tournament -->
+		<h3 class="title">{{ lang.title_info }}</h3>
+		{% if tournament %}
+		<div class="info">
+				<u>{{ lang.tournament_start_date }}</u>: {{ startDate }}<br />
+				<u>{{ lang.tournament_finish_date }}</u>: {{ finishDate }}<br />
+				<u>{{ lang.number_rounds }}</u>: {{ numberRounds }}<br />
+		</div>
+		{% else %}
+		<div class="error">{{ lang.error_tournament_info_no_exists }}</div>
+		{% endif %}
+
+			<!-- Users scores -->
+			<h3 class="title">{{ lang.title_table }}</h3>		
+			{% if scores %}
+				<center>
+					<table id="scores" class="tablesorter">
+						<thead> 
+						<tr> 
+							<th class="tooltip" title="Position">POS</th>		
+							<th class="tooltip" title="Username">USER</th>
+							<th class="tooltip" title="Games played">GP</th>						
+							<th class="tooltip" title="Games won">GW</th>
+							<th class="tooltip" title="Games lost">GL</th>
+							<th class="tooltip" title="Days of reflection">DR</th>							
+							<th class="tooltip" title="Questions Won">QW</th>
+							<th class="tooltip" title="Question Lost">QL</th>
+							<th class="tooltip" title="Score">Pts</th>
+						</tr>
+						</thead>
+						<tfoot> 
+						<tr> 
+							<th class="tooltip" title="Position">POS</th>		
+							<th class="tooltip" title="Username">USER</th>
+							<th class="tooltip" title="Games Played">GP</th>						
+							<th class="tooltip" title="Games Won">GW</th>
+							<th class="tooltip" title="Games Lost">GL</th>
+							<th class="tooltip" title="Days of reflection">DR</th>							
+							<th class="tooltip" title="Questions Won">QW</th>
+							<th class="tooltip" title="Question Lost">QL</th>
+							<th class="tooltip" title="Score">Pts</th>
+						</tr>
+						</tfoot>
+						<tbody> 			
+						{% for score in scores %}
+						<tr>
+							{% if score.pos == 1 %}
+								<td class="first">{{ score.pos }}</td>
+								<td class="first">{{ score.profile.user.username }}</td>
+								<td class="first">{{ score.total_games }}</td>
+								<td class="first">{{ score.winner_games }}</td>
+								<td class="first">{{ score.loser_games }}</td>
+								<td class="first">{{ score.reflection_days }}</td>								
+								<td class="first">{{ score.winner_questions }}</td>
+								<td class="first">{{ score.loser_questions }}</td>
+								<td class="first">{{ score.score }}</td>				
+							{% else %}
+								<td>{{ score.pos }}</td>
+								<td>{{ score.profile.user.username }}</td>
+								<td>{{ score.total_games }}</td>
+								<td>{{ score.winner_games }}</td>
+								<td>{{ score.loser_games }}</td>
+								<td>{{ score.reflection_days }}</td>
+								<td>{{ score.winner_questions }}</td>
+								<td>{{ score.loser_questions }}</td>					
+								<td>{{ score.score }}</td>
+							{% endif %}
+						</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+					<div class="pager" id="pager">
+						<form>
+							<img src="http://tablesorter.com/addons/pager/icons/first.png" class="first"/>
+							<img src="http://tablesorter.com/addons/pager/icons/prev.png" class="prev"/>
+							<input type="text" class="pagedisplay"/>
+							<img src="http://tablesorter.com/addons/pager/icons/next.png" class="next"/>
+							<img src=".http://tablesorter.com/addons/pager/icons/last.png" class="last"/>
+							<select class="pagesize">
+								<option selected="selected" value="5">5</option>
+								<option value="10">10</option>
+								<option value="20">20</option>
+								<option  value="40">40</option>
+							</select>
+						</form>
+					</div>
+				</center>	
+			{% else %}
+				<div class="error">{{ lang.error_no_tournament_score }}</div>
+			{% endif %}
+
+		{% if startDate > dateNow.date and tournament.optional_info %}
+			<h3 class="title">Tournament Info</h3>
+			{{ tournament.optional_info|safe|linebreaksbr }}
+		{% endif %}
+
+		{% if startDate <= dateNow.date %}
+			<!-- ADMIN Results -->
+			{% if user_me.user.is_superuser or user_me.user == tournament.admin %}
+				<h3 class="title">{{ lang.title_tournament_games }}</h3>
+				<div class="warning">{{ lang.warning_only_admin }}</div>
+				{% if rounds and allGames %}
+					{% for round in rounds %}
+						<h3 class="title">{{ lang.round }} {{ round.round_number }}</h3>
+						{% for game in allGames %}
+							{% if game.rid == round.pk %}
+								<a href="/games/{{ game.game.pk }}/">{{ game.game.player1.username }} vs {{ game.game.player2.username }}</a><br />
+							{% endif %}						
+						{% endfor %}
+					{% endfor %}
+				{% else %}
+					<div class="error">{{ lang.error_tournament_no_games }}</div>
+				{% endif %}
+			{% endif %}
+		
+			<!-- player results -->
+			{% if myGames %}
+				<h3 class="title">My Tournament Games</h3>
+				<div class="warning">{{ lang.warning_only_players }}</div>
+				{% for round in rounds %}
+					<h3 class="title">Round {{ round.round_number }}</h3>
+					{% for game in myGames %}
+						{% if game.round.pk == round.pk %}
+							<a href="/games/{{ game.pk }}/">{{ game.player1.username }} vs {{ game.player2.username }}</a><br />
+						{% endif %}				
+					{% endfor %}
+				{% endfor %}
+			{% endif %}
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

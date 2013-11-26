@@ -1,0 +1,108 @@
+{% extends "custom/analytics/base-analytics.html" %}
+
+
+{% block js %}
+
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<script type="text/javascript">
+		var chart;
+		
+		$(document).ready(function() {
+		
+		  $('#container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'General Data of Games'
+            },
+          
+            xAxis: {
+                categories: [ {% for c in categories %}
+			        		'{{c}}',
+			        	{% endfor %}
+                ],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Cantidad(unidades)',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ' unidades'
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Questions',
+                data: [{{preguntas1}}, {{preguntas2}}, {{preguntas3}}, {{preguntas4}}, {{preguntas5}}]
+            }, {
+                name: 'Social: chat messages + incorrected answers',
+                data: [{{fallo1}}, {{fallo2}}, {{fallo3}}, {{fallo4}}, {{fallo5}}]
+            }, {
+                name: 'Correct answers',
+                data: [{{acierto1}}, {{acierto2}}, {{acierto3}}, {{acierto4}}, {{acierto5}}]
+                
+            }]
+        });
+    });
+    
+   			
+</script>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="contentbg" style="margin: 0; padding: 0; width: 100%">
+		<div class="post">
+			<!--<h2 class="title">Analytics</h2>-->
+
+
+		    <div id="container" style="width: 700px; height: 480px; margin: 0 auto"></div>
+		    
+			<center><div style="clear: both;">&nbsp;</div>
+				<fieldset class="ui-grid-b" data-theme="b">
+						<div class="ui-block-a"></div>
+						<div class="ui-block-b"><a href="/next-games"><button data-theme="b">Go to fleq!</button></a></div>
+						<div class="ui-block-c"></div>
+				</fieldset>
+			</center>
+ 
+			</div>
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	
+
+{% endblock %}

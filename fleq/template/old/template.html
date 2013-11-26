@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+http://www.freecsstemplates.org/download/zip/gentlebreeze/
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : GentleBreeze
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20120125
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Free LibreSoft Educational Quizbowl</title>
+<link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<!-- GOOGLE BUTTONS -->
+<link href="/css/google-buttons.css" rel="stylesheet" type="text/css" media="screen" />
+<!-- JQUERY TABLESORTER -->
+<link href="/css/jquery-tablesorter.css" rel="stylesheet" type="text/css" media="screen" />
+<!-- TIPTIP -->
+<link href="/css/tipTip.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    {% block extra_js %}{% endblock %}
+
+
+
+
+<!-- ANIMATION MENU SCRIPT -->
+<script type="text/javascript">
+function mainmenu(){
+	// Hide submenus
+	$(" #nav ul ").css({display: "none"});
+	// I define which submenus must be visibles when move the mouse over menu
+	$(" #nav li").hover(function(){
+		 $(this).find('ul:first:hidden').css({visibility: "visible",display: "none"}).slideDown(400);
+		 },function(){
+		     $(this).find('ul:first').slideUp(400);
+		 });
+	}
+	$(document).ready(function(){
+		 mainmenu();	 
+});
+</script>
+<!-- JQUERY TABLESORTER -->
+<script language="javascript" src="/js/jquery-tablesorter.js"></script>
+<script type="text/javascript" src="/js/jquery-tablesorter-pager.js"></script>
+<script type="text/javascript">
+$(document).ready(function() 
+	{ 
+		$("#scores")
+		.tablesorter({sortList: [[0,0]]})
+		.tablesorterPager({container: $("#pager")});
+	} 
+);
+
+$(document).ready(function() 
+	{ 
+		$("#ranking")
+		.tablesorter({sortList: [[2,1]]})
+		.tablesorterPager({container: $("#pager")});
+	}
+); 
+</script>
+<!-- TIPTIP -->
+<script language="javascript" src="/js/jquery-tipTip.js"></script>
+<script>
+	$(function(){
+$(".tooltip").tipTip({maxWidth: "auto", edgeOffset: 15, defaultPosition: "top"});
+});
+</script>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/">FLEQ</a></h1>
+				<p>Free Libresoft Educational Quizbowl</p>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu-wrapper">
+		<div id="menu">
+			<ul id="nav">
+				<!------------------------------------------------------
+					MENU NAVIGATION
+				------------------------------------------------------->
+				<li><a href="/">Home</a></li>
+			{% if user_me.user.is_authenticated %}
+				<li><a href="#">My Panel</a>
+					<ul class="submenu">
+						<li><a href="/my-tournaments">My Tournaments</a></li>
+						<li><a href="/my-next-games">My Next Games</a></li>						
+						<li><a href="/my-question-reviews">My Question Reviews
+						{% if pendingQR > 0 %}<font color="red">({{ pendingQR }})</font>{% endif %}</a></li>
+					</ul>
+				</li>
+			{% else %}
+				<li><a href="/login">Login/Register</a></li>
+			{% endif %}
+				<li><a href="#">All Tournaments</a>
+					<ul class="submenu">
+						<li><a href="/tournaments">Next & Active Tournaments</a></li>
+						<li><a href="/ranking">Global Ranking</a></li>						
+					</ul>				
+				</li>
+				<li><a href="/play">Play</a></li>
+			{% if user_me.user.is_authenticated %}
+				{% if user_me.user.is_superuser or admin_user %}
+					<li><a href="{% if user_me.user.is_superuser %}/admin{% else %}#{% endif %}">Admin Panel</a>
+						<ul class="submenu">
+							<li><a href="/admin/new-tournament">New Tournament</a></li>
+							<li><a href="/admin/load-questions">Load Questions</a></li>
+						</ul>
+					</li>
+				{% endif %}
+			{% endif %}
+				<li><a href="#">FAQ & Info</a>
+					<ul class="submenu">
+						<li><a href="/what-is-fleq">What is FLEQ?</a></li>
+						<li><a href="/how-to-play">How to play?</a></li>						
+						<li><a href="/rules">Rules</a></li>
+						<li><a href="/faq">FAQ</a></li>
+						<li><a href="/contact">Contact Us!</a></li>
+					</ul>
+				</li>
+			{% if user_me.user.is_authenticated %}				
+				<li><a href="/logout">Logout ({{ user_me.user.username }})</a></li>
+			{% endif %}				
+			</ul>
+		</div>
+	</div>
+	<!-- end #menu -->
+<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="page-content">				
+					<div id="content">
+						<!------------------------------------------------------
+							MAIN CONTENT
+						------------------------------------------------------->								
+						{% block main %}{% endblock %}
+						<div style="clear: both;">&nbsp;</div>
+					</div>
+					<!-- end #content -->
+					<!------------------------------------------------------
+						SIDEBAR
+					------------------------------------------------------->
+					<div id="sidebar">
+						{% block sidebar %}{% endblock %}
+						{% if user_me.user.is_active %}
+						<ul>
+							<li>
+								<center><table>
+									<tr>
+										<td>
+											<img src="/{{ user_me.avatar }}" width="64px" />
+										</td>
+										<td valign="top">
+											<h3>Hi, {{ user_me.user.first_name }}!</h3>
+											<div class="buttons">
+												<a href="/edit-profile" class="button editprofile" title="Update profile">&nbsp;</a>
+												<a href="/change-password" class="button change-password" title="Change password">&nbsp;</a>
+											</div>
+										</td>
+									</tr>
+								</table></center>
+							</li>
+							<!-- MY STATS -->
+							<li>
+								<center><table width="100%">
+									<tr>
+										<td colspan=2>
+											<center><h2>My Stats</h2></center>
+										</td>
+									<tr>
+										<td valign=middle>W/L Games:</td>
+										<td valign=middle>
+											<a href="/won-games" class="button winnergames" title="Won games">{{ user_me.winner_games }}</a>
+											<a href="/lost-games" class="button losergames" title="Lost games">{{ user_me.loser_games }}</a></td>
+									</tr>
+								</table></center>
+							</li>
+							<!-- MY TODAY GAMES -->
+							{% if todayGames %}
+							<li>
+								<center><table width="100%">
+									<tr>
+										<td>
+											<center><h2>{{ lang.title_sidebar_today_games }}</h2></center>
+										</td>
+									</tr>
+									{% for game in todayGames %}
+									<tr>
+										<td>
+											<hr />
+											<center>
+												<a href="/games/{{ game.pk }}"><h1>{{ game.player1.username }} vs {{ game.player2.username }}</h1></a>
+												(at <b>{{ game.start_time.time }}</b>)
+												{% if not game.start_time_committed %}
+													<div class="warning_sidebar"><a href="/my-next-games">{{ lang.uncommitted }}</a></div>
+												{% else %}
+													<div class="success_sidebar">{{ lang.committed }}</div>				
+												{% endif %}				
+											</center>
+											<hr />
+										</td>
+									</tr>
+									{% endfor %}
+								</table></center>
+							</li>
+							{% endif %}
+							<!-- MY NEXT GAMES -->
+							{% if nextGames %}
+							<li>
+								<center><table width="100%">
+									<tr>
+										<td>
+											<center><h2>{{ lang.title_sidebar_next_games }}</h2></center>
+										</td>
+									</tr>
+									{% for game in nextGames %}
+									<tr>
+										<td>
+											<hr />
+											<center>
+												<a href="/games/{{ game.pk }}"><h1>{{ game.player1.username }} vs {{ game.player2.username }}</h1></a>
+												<a href="/tournaments/{{ game.round.tournament.sid }}"><b>{{ game.round.tournament.name }}</b></a> (<b>{{ game.start_time.date }}</b>)
+												{% if not game.start_time_committed %}
+													<div class="warning_sidebar"><a href="/my-next-games">{{ lang.uncommitted }}</a></div>
+												{% else %}
+													<div class="success_sidebar">{{ lang.committed }}</div>				
+												{% endif %}
+											</center>
+											<hr />
+										</td>
+									</tr>
+									{% endfor %}
+								</table></center>
+							</li>
+							{% endif %}	
+							<!-- MY ACTIVE TOURNAMENTS -->
+							<li>
+								<center><table width="100%">
+									<tr>
+										<td>
+											<center><h2>{{ lang.title_sidebar_my_active_tournaments }}</h2></center>
+										</td>
+									</tr>
+									{% if myTournaments %}
+									{% for t in myTournaments %}
+									<tr>
+										<td>
+											<center><a href="/tournaments/{{ t.sid }}"><h1>{{ t.name }}</h1></a></center>
+										</td>
+									</tr>
+									{% endfor %}
+									{% else %}
+									<tr>
+										<td>
+											<div class="error_sidebar">{{ lang.error_sidebar_no_active_tournaments }}</div>
+										</td>
+									</tr>
+									{% endif %}
+								</table></center>
+							</li>
+							<!-- MY ACTIVE ADMIN TOURNAMENTS -->
+							{% if user_me.user.is_superuser or admin_user %}
+							<li>
+								<center><table width="100%">
+									<tr>
+										<td>
+											<center><h2>{{ lang.title_sidebar_my_admin_tournaments }}</h2></center>
+										</td>
+									</tr>
+									{% if myAdminTournaments %}
+									{% for t in myAdminTournaments %}
+									<tr>
+										<td>
+											<center><a href="/tournaments/{{ t.sid }}"><h1>{{ t.name }}</h1></a></center>
+										</td>
+									</tr>
+									{% endfor %}
+									{% else %}
+									<tr>
+										<td>
+											<div class="error_sidebar">{{ lang.error_sidebar_no_admin_active_tournaments }}</div>
+										</td>
+									</tr>
+									{% endif %}
+								</table></center>
+							</li>
+							{% endif %}
+						</ul>
+						{% endif %}
+						<ul>
+							<li>
+								<center><h3 class="title">Contact Us</h3>
+									<a target="blank" href="http://twitter.com/#!/FLEQlibresoft"><img src="/images/social-networks/twitter.png" /></a>
+									<a href="/contact"><img src="/images/social-networks/mail.png" /></a>
+								</center>
+							</li>
+						</ul>									
+						<ul>
+							<li>
+								<center>
+									<a target="blank" href="http://libresoft.es"><img width="80%" src="/images/libresoft_logo.png" /></a>
+									<a target="blank" href="http://www.urjc.es"><img width="80%" src="/images/URJC_logo.png" /></a>
+									<a target="blank" href="http://www.urjc.es"><img width="60%" src="/images/emadrid_logo.png" /></a>
+								</center>
+							</li>
+						</ul>
+					</div>
+					<!-- end #sidebar -->
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<!------------------------------------------------------
+	FOOTER
+------------------------------------------------------->
+<!-- Stats Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32093745-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end #footer -->
+</body>
+</html>

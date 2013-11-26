@@ -1,0 +1,173 @@
+{% extends "custom/base-mini.html" %}
+
+<!DOCTYPE HTML>
+{% block content %}
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<title>Simple FAQ Template</title> 
+<style type="text/css">
+ .FAQ {
+	cursor: hand;
+	cursor: pointer;
+	border: 1px solid #CCC;
+	width: 100%;
+	margin-top: 10px;
+	padding: 10px;
+	color:#333
+	font-weight:bold;
+}
+ .ANS { 
+	display:none;
+	margin-top:10px;
+}
+</style>
+<script type="text/javascript">
+function toggle(Info) {
+  var CState = document.getElementById(Info);
+  CState.style.display = (CState.style.display != 'block')
+                       ? 'block' : 'none';
+}
+</script>
+</head>
+
+<body>
+
+
+<h1>FAQ</h1>
+<p>Preguntas más frecuentes acerca de la plataforma FLEQ</p>
+
+<DIV class="FAQ" onclick="toggle('faq1')">
+ ¿Qué es FLEQ?
+ <div id="faq1" class="ANS"><p>FLEQ es una competición online síncrona que tiene como objetivo la motivación y la mejora del aprendizaje. Su nombre es el acrónimo de <i>Free LibreSoft Educational Quizbowl</i>.</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq2')">
+ ¿Cuáles son los pasos a seguir para participar en un campeonato en FLEQ?
+ <div id="faq2" class="ANS"><p>A continuación, vamos a enumerar los principales pasos a seguir para participar en un campeonato en la plataforma FLEQ:
+
+<ol>
+
+<li> En primer lugar debes registrarte en el sistema a través del apartado correspondiente de su página web.</li>
+ 
+<li> Una vez que te hayas registrado, ya podrás acceder al sistema haciendo uso del usuario y contraseña elegido durante el proceso de registro.</li>
+
+<li> Cuando hayas accedido al sistema podrás ver las diferentes opciones existentes. Pero lo primero que debes hacer es inscribirte en el torneo en el que vayas a participar y prestar atención a la fecha de inicio del mismo. </li>
+
+<li> Cuando el torneo en el que te hayas inscrito dé comienzo, tendrás que ir consultando, para cada una de las rondas de las que conste el torneo, el día de tu siguiente partida y concertar con tu oponente la hora concreta de celebración de la misma.</li>
+
+<li> Una vez que se haya concertado el día y la hora de la partida (o en la fecha y hora por defecto) ya sólo queda que compitas con tu contrincante.</li>
+
+<li> A lo largo del campeonato podrás ir consultando los resultados que se han producido en todas las partidas, así como consultar la clasificación del torneo. </li>
+
+</ol>
+
+En las siguientes preguntas vamos a ir explicando con más detalle cada uno de los pasos que acabamos de introducir.
+</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq3')">
+ ¿Qué tengo que hacer para registrarme en el sistema?
+ <div id="faq3" class="ANS"><p>Podemos registrarnos en el sistema FLEQ desde la página principal pulsando la opción <i>Register now!</i> o accediendo directamente a la página de registro. En esta página de registro debemos introducir la siguiente información: nombre de usuario, nombre y apellidos, contraseña y dirección de correo electrónico. Una vez que hemos introducido la información solicitada, si pulsamos el botón <i>Register</i> se finalizará el proceso de registro y accederemos directamente al sistema identificados con el usuario y contraseña que acabamos de indicar.</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq4')">
+¿Puedo utilizar cualquier nombre de usuario?
+ <div id="faq4" class="ANS"><p>Sí, se puede utilizar cualquier nombre de usuario, tanto uno que haga referencia a tu nombre y apellidos como uno que sea completamente anónimo. Lo que sí es necesario que introduzcáis correctamente es vuestro nombre, apellidos y el correo electrónico.</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq5')">
+ ¿Qué tengo que hacer para acceder al sistema?
+ <div id="faq5" class="ANS"><p>Una vez que nos hemos registrado en el sistema y tenemos nuestro nombre de usuario y contraseña, para acceder al sistema simplemente tenemos que introducir en la parte superior derecha de la página principal de FLEQ nuestro usuario y contraseña y pulsar el botón <i>Login</i>. Si aún no estás registrado recuerda que el primer paso para acceder al sistema es registrarse en él.</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq6')">
+ ¿Qué tengo que hacer para cerrar mi sesión en el sistema?
+ <div id="faq6" class="ANS"><p>Para cerrar una sesión iniciada con un nombre de usuario y contraseña determinados, simplemente tenemos que pulsar el botón <i>Logout</i> que aparece en la parte superior derecha de todas las pantallas de la plataforma. Se cerrará la sesión y seremos dirigidos a la página principal.</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq7')">
+¿Cómo me inscribo en el torneo que voy a participar?
+ <div id="faq7" class="ANS"><p>Es recomendable que la primera vez que accedas al sistema con tu nombre de usuario y contraseña te inscribas en el torneo en el que vayas a participar. Para ello, una vez identificado y dentro del sistema, debes pulsar sobre la opción <i>Next tournaments</i> que aparece en el menú de la parte izquierda de la página. Entonces aparecerán los próximos torneos para los que aún está permitido inscribirse, pulsamos sobre el torneo en el que vamos a participar y en la siguiente página pulsamos la opción <i>Join this tournament</i>. En ese momento ya estaríamos inscritos en el torneo y simplemente nos quedaría esperar hasta la fecha de inicio del mismo.</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq8')">
+¿Dónde puedo ver la información relativa a un torneo (día de comienzo y final, número de rondas, días por cada ronda, etc.)?
+ <div id="faq8" class="ANS"><p>Cuando vamos a inscribirnos en un torneo y vemos los torneos disponibles, para cada uno de los torneos podremos observar su información completa, que incluye: el nombre del torneo, las categorías de las preguntas, el número de rondas de que consta, el número de días que dura cada una de las rondas y el día de comienzo y finalización.
+<br><br>
+Una vez que nos hemos inscrito en un torneo, en cualquier momento, podemos consultar esta misma información si accedemos a la opción <i>My tournaments</i> del menú de la parte izquierda de la página.
+</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq9')">
+¿Cómo sé contra quién y cuándo juego mi siguiente partida?
+ <div id="faq9" class="ANS"><p>Si entras en el sistema con tu nombre de usuario y contraseña, la página que aparece justo después de identificarte es la página en la que puedes consultar cuándo y contra quién es tu siguiente partida (<i>My next games</i>). En caso de que te hayas identificado y hayas estado navegando por las diferentes opciones disponibles en la plataforma, para consultar tu siguiente partida, simplemente tendrás que seleccionar la opción <i>My next games</i> del menú de la izquierda de la página.
+<br><br>
+La hora que aparecerá en un primer momento será la hora por defecto que el sistema adjudica a las partidas, pero se puede concertar otra hora poniéndose de acuerdo con el oponente (ver siguiente pregunta).
+</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq10')">
+ ¿Cómo puedo concertar con mi oponente una hora para la partida diferente de la que viene por defecto?
+ <div id="faq10" class="ANS"><p>Si accedemos a la opción <i>My next games</i> del menú de la izquierda de la página y pinchamos en la siguiente partida que nos aparezca, vemos como tenemos tres opciones:
+
+<ul>
+
+<li type="disc"><i>Select your preferred times</i>: si desplegamos esta opción, nos aparecerán las fechas y horas que podemos seleccionar para disputar la partida. Debemos elegir las horas que mejor nos vengan para que se celebre la partida y esperar a que nuestro oponente apruebe alguna de ellas, o aprobar alguna de las horas que haya propuesto nuestro contrincante y que podemos consultar y aprobar en la opción <i>Opponent times</i>. Para elegir las horas que mejor nos vengan simplemente tenemos que seleccionarlas haciendo click sobre ellas y pulsar el botón <i>Save</i> para guardar nuestra selección.</li>
+
+<li><i>Your previous preferences</i>: si desplegamos esta opción y hemos seleccionado previamente alguna fecha y hora para jugar la partida dentro de la opción <i>Select your preferred times</i>, lo que veremos serán las fechas y horas que fueron marcadas en su momento.</li>
+
+<li><i>Opponent times</i>: Si desplegamos esta opción y nuestro oponente nos ha sugerido alguna hora para jugar la partida, veremos las fechas y horas que éste haya seleccionado. En caso de que alguna de las horas propuestas nos parezca bien podemos seleccionar dicha hora y pulsar el botón <i>Select</i> de forma que la fecha y hora de la partida quedará definida. </li>
+
+</ul>
+ 
+</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq11')">
+ ¿Cómo sé que se ha fijado una hora para la partida?
+ <div id="faq11" class="ANS"><p>Inicialmente, todas las partidas aparecen programadas para jugarse a una hora por defecto (junto a la hora vemos que aparece <i>(provisional)</i>). Mientras que la hora programada para la partida siga siendo esta hora por defecto, pulsando sobre la partida podremos acceder a las opciones que acabamos de comentar que nos permiten concertar la hora de la partida con el oponente. Una vez que el oponente haya confirmado una de las horas que nosotros le hemos propuesto, veremos que la hora de celebración de la partida se actualiza, desaparece el mensaje de <i>(provisional)</i> que aparecía antes junto a la hora y lo que aparece si pulsamos en dicha partida son los cuadros de texto en los que iremos leyendo las preguntas y respondiéndolas.</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq12')">
+Recomendaciones a la hora de jugar las partidas.
+ <div id="faq12" class="ANS"><p>
+<ul>
+<li type="disc">Es recomendable acceder al sistema con algunos minutos de antelación con respecto a la hora de la partida para evitar llegar con la partida ya empezada.</li> 
+<li>Es bueno hacer alguna prueba de introducción de texto en el espacio reservado para la escritura de las respuestas antes de contestar las preguntas de la partida en sí. </li>
+<li>Es aconsejable que se jueguen las partidas con un dispositivo conectado a una red estable y con una buena conexión para evitar problemas derivados de malas conexiones de red, redes inestables o falta de cobertura.</li>
+<li>Puedes introducir tantas respuestas como desees hasta que alguno de los dos participantes acierte la pregunta. Pero tienes que ser rápido introduciéndolas porque el primero que introduzca la respuesta correcta es el que se lleva el punto.</li>
+</ul>
+</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq13')">
+Una vez que ha llegado el día y la hora de la partida, ¿cómo juego la partida?
+ <div id="faq13" class="ANS"><p>Antes de empezar la partida deberías repasar la recomendaciones que hacemos a la hora de jugar las partidas. Una vez que lo hayáis hecho, para proceder a jugar la partida primero tenemos que identificarnos en el sistema introduciendo nuestro nombre de usuario y contraseña, una vez que estamos dentro seleccionamos la opción <i>My next games</i> del menú de la parte izquierda de la página y una vez ahí seleccionamos la partida que nos toca jugar. Entonces, veremos el cuadro en el que aparecerán las preguntas y las interacciones entre los participantes en la partida, así como el cuadro para la introducción de texto, por lo que sólo nos queda esperar a que la partida empiece para comenzar a responder las preguntas.</p></div>
+</DIV>
+
+<DIV class="FAQ" onclick="toggle('faq14')">
+¿Dónde puedo consultar los resultados del resto de participantes en el torneo? ¿Y la clasificación?
+ <div id="faq14" class="ANS"><p>Una vez dentro del sistema, para consultar tanto los resultados de los otros participantes como la clasificación del torneo, simplemente tenemos que acceder a la opción <i>My tournaments</i> del menú de la parte izquierda de la página y una vez ahí seleccionar el torneo del que queremos consultar los resultados o la clasificación.</p></div>
+</DIV>
+<div class="contentbg" style="margin: 0; padding: 0; width: 100%">
+		<div class="post">
+			<!--<h2 class="title">Analytics</h2>-->
+
+
+		    <div id="container" style="width: 700px; height: 480px ></div>
+		    
+			<center><div style="clear: both;">&nbsp;</div>
+				<fieldset class="ui-grid-b" data-theme="b">
+						<div class="ui-block-a"></div>
+						<div class="ui-block-b"><a href="/next-games"><button data-theme="b">Go to fleq!</button></a></div>
+						<div class="ui-block-c"></div>
+				</fieldset>
+			</center>
+ 
+			</div>
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+
+</body>
+{% endblock %}
+</html>
